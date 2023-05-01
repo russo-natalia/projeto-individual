@@ -107,6 +107,47 @@ body {
     color: #8EC7DF;
 }
 
+/*rodape*/
+#rodape {
+    background-image: url(../img/fundo-rodape.png);
+    background-size: cover;
+    height: 500px;
+    width: 100%;
+    text-align: center;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+
+.conteudo-rodape {
+    background-color: #ffffffb9;
+    height: 400px;
+    color: #000000;
+    display: flex;
+    justify-content: center;
+}
+.contato, .paginas {
+    width: 40%;
+    text-align: justify;
+    margin: 100px 50px;
+}
+
+.contato a, .paginas a {
+    text-decoration: none;
+    color: #000000;
+}
+.subtitulo {
+    font-weight: 700;
+}
+
+.img-rodape a img{
+    margin: 20px 10px;
+    width: 50px;
+}
+
+
 /*banner*/
 #fundo-banner {
     background-image: url(../img/fundo-banner.png);
