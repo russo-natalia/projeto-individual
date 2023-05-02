@@ -291,3 +291,30 @@ body {
     align-items: center;
 }
 
+.mais-sobre {
+    height: 500px;
+    background-color: #39B983;
+    margin-top: -22px;
+    color: white;
+    padding: 30px 15%;
+}
+
+.card-mais-sobre {
+    background-color: white;
+    width: 95%;
+    height: 70px;
+    margin-bottom: 30px;
+    color: #39B983;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    border-radius: 15px;
+    padding: 0px 30px ;
+    box-shadow: 1px 15px 33px 11px rgba(0, 0, 0, 0.08);
+
+}
+
+.link-mais-sobre {
+    color: #39B983;
+    text-decoration: none;
+}
