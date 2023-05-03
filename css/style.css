@@ -43,6 +43,22 @@
     text-decoration: none;
 }
 
+.link-seta {
+    width: 97%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 70px;
+}
+
+.link-seta a img {
+    width: 50px;
+    transition: 0.5s;
+}
+
+.link-seta a img:hover {
+    width: 60px;
+}
 
 
 .fundo-questionario {
@@ -115,6 +131,7 @@
     width: 200px;
     margin-right: 30px;
     transition: 0.5s;
+    height: 200px;
 }
 
 .img-artistas:hover {
