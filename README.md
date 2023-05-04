@@ -1,3 +1,7 @@
+![image](https://user-images.githubusercontent.com/125298390/236274141-53957d72-7717-4d54-b36b-585bc52d3285.png)
+
+
+
 # Abstract - Impressionismo
 
 O projeto tem como objetivo desenvolver de um website pelo qual o tema impressionismo seja exposto de forma clara. Por meio dele o usuário poderá preencher o questionário no qual será indicado, com base em suas respostas, com qual pintura ele tem maior relação. A mesma plataforma será utilizada para posterior consulta dos gráficos referentes as respostas dos usuários.
