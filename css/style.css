@@ -116,7 +116,13 @@
 
 .bloco-texto {
     width: 50%;
+    
 }
+.bloco-texto p{
+    text-align: justify;
+    text-indent: 20px;
+}
+
 
 .linha {
     width: 30%;
@@ -218,4 +224,41 @@
     -webkit-transform: scale(1.1);
     transform: scale(1.1);
     cursor: pointer;
+}
+
+.destaque {
+    color: #5d91d4e3;
+    text-decoration: none;
+    padding: 2px;
+}
+
+/*saiba mais*/
+.titulo-saiba-mais {
+    background-image: url(../img/fundo-saiba-mais.png);
+    background-size: cover;
+    height: 170px;
+    width: 100%;
+    color: white;
+}
+
+.fundo-branco {
+    background-color: #ffffff7f;
+}
+
+.titulo-saiba-mais .header .container ul li a {
+   font-weight: 600;
+}
+
+.titulo-h1 {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.titulo-h1 h1 {
+    margin-right: 10%;
+}
+
+.saiba1 {
+    height: 500px;
 }
