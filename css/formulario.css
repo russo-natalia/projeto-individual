@@ -6,6 +6,10 @@
     color: #848484;
 }
 
+.form h1 {
+    margin-left: 28%;
+}
+
 .form button {
     border: none;
     width: 400px;
@@ -42,18 +46,21 @@
 }
 
 .img-fale-conosco {
-    background-image: url(../img/fale-conosco.png);
+    background-image: url(../img/fale-conosco.jfif);
     background-size: cover;
     height: 600px;
     width: 60%;
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    justify-content: flex-end;
+    align-items: flex-start;
     color: white;
 }
 .img-fale-conosco h2 {
-    width: 40%;
-    font-size: 30px;
+    width: 60%;
+    font-size: 40px;
+    margin: 30px;
+    font-weight: 500;
 }
 
 /*login*/
