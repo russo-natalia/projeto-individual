@@ -130,7 +130,7 @@
     margin-bottom: 20px;
 }
 
-.bloco-texto span, p{
+.bloco-texto span, p, h1{
     margin-left: 60px;
 }
 .img-artistas {
@@ -242,11 +242,12 @@
 }
 
 .fundo-branco {
-    background-color: #ffffff7f;
+    background-color: #ffffff6c;
 }
 
 .titulo-saiba-mais .header .container ul li a {
-   font-weight: 600;
+   font-weight: 400;
+   color: black;
 }
 
 .titulo-h1 {
@@ -260,5 +261,38 @@
 }
 
 .saiba1 {
+    margin-top: 50px;
     height: 500px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.saiba2 {
+    margin-top: 50px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.saiba2 img {
+    width: 700px;
+}
+
+.saiba2 .bloco-texto {
+    margin-right: 0;
+}
+
+
+.saiba1 img {
+    width: 600px;
+}
+
+.saiba1 .linha, .saiba2 .linha {
+    width: 500px;
+}
+
+.img-saiba1 {
+    display: flex;
+    flex-direction: column;
 }
