@@ -41,55 +41,36 @@
         </div>
         <div class="cadastro">
             <div class="form">
-                <h1 class="color-verde">Cadastro</h1>
-                <span class="texto-campo">Nome</span><br>
+                <h1 class="color-azul">Cadastro</h1>
+                <span class="texto-campo color-azul">Nome</span><br>
                 <input id="nome_input" type="text" class="campo"><br>
+
+                <span class="texto-campo color-azul">Sobrenome</span><br>
+                <input id="sobrenome_input" type="text" class="campo"><br>
+
+                <span class="texto-campo color-azul">Data de Nascimento</span><br>
+                <input id="dtNasc_input" type="date" class="campo"><br>
+
+                <span class="texto-campo color-azul">Telefone</span><br>
+                <input id="telefone_input" type="tel" class="campo"><br>
+
+                <span class="texto-campo color-azul">E-mail</span><br>
+                <input id="email_input" type="email" class="campo"><br>
+
+                <span class="texto-campo color-azul">Senha</span><br>
+                <input id="senha_input" type="password" class="campo"> <br>
+
+                <span class="texto-campo color-azul">Confirmar Senha</span><br>
+                <input id="confirmacao_senha_input" type="password" class="campo"><br>
+                <span class="alerta-form"> Já tem cadastro? <a href="login.html" class="color-azul">Faça Login</a></span><BR></BR>
+                
+                <button class="back-azul" onclick="cadastrar()">Cadastrar</button>
+
+
             </div>
             <div class="img-cadastro">
-
             </div>
         </div>
-        <div class="container">
-            <div class="card card-cadastro">
-                <h2 >Cadastro</h2>
-                <div class="formulario">
-
-                    <!--
-                         Para inserir mais um campo, copie uma das inputs abaixo.
-                         Assim que inserir vá para o script abaixo.
-                     -->
-
-                    <div class="campo">
-                        <span>Nome:</span>
-                        
-                    </div>
-                    <div class="campo">
-                        <span>Sobrenome:</span>
-                        <input id="sobrenome_input" type="text" placeholder="Seu nome">
-                    </div>
-                    <div class="campo">
-                        <span>Data de Nascimento:</span>
-                        <input id="dtNasc_input" type="text" placeholder="Seu nome">
-                    </div>
-                    <div class="campo">
-                        <span>Telefone:</span>
-                        <input id="telefone_input" type="text" placeholder="Seu nome">
-                    </div>
-                    <div class="campo">
-                        <span>E-mail:</span>
-                        <input id="email_input" type="text" placeholder="meuemail@provedor.com">
-                    </div>
-                    <div class="campo">
-                        <span>Senha:</span>
-                        <input id="senha_input" type="password" placeholder="******">
-                    </div>
-                    <div class="campo">
-                        <span>Confirmação da Senha:</span>
-                        <input id="confirmacao_senha_input" type="password" placeholder="******">
-                    </div>
-                    <button class="botao" onclick="cadastrar()">Cadastrar</button>
-
-                </div>
                 <div id="div_aguardar" class="loading-div">
                     <img src="./assets/circle-loading.gif" id="loading-gif">
                 </div>

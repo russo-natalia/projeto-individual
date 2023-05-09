@@ -2,12 +2,14 @@
     padding: 50px;
 }
 .alerta-form {
-    font-size: 10px;
+    font-size: 15px;
     color: #848484;
+    text-align: center;
 }
 
-.form h1 {
-    margin-left: 28%;
+.alerta-form a {
+    text-decoration: none;
+
 }
 
 .form button {
@@ -28,7 +30,8 @@
     font-size: 15px;
     cursor: text;
     border-radius: 10px;
-    margin: 10px 0px 50px 0px;
+    margin: 10px 0px 40px 0px;
+    padding: 5px;
 }
 
 .texto-campo {
@@ -64,4 +67,34 @@
 
 /*login*/
 
+#login {
+    display: flex;
+    justify-content: space-between;
+}
+
+.img-login {
+    background-image: url(../img/login.jfif);
+    background-size: cover;
+    height: 550px;
+    width: 60%;
+}
+
+#login .form {
+    margin-right: 70px;
+}
+
 /*cadastro*/
+.cadastro .form {
+    margin-left: 70px;
+}
+.cadastro {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.img-cadastro {
+    background-image: url(../img/cadastro.jfif);
+    height: 1200px;
+    width: 60%;
+}

@@ -37,20 +37,25 @@
                 <span id="mensagem_erro"></span>
             </div>
         </div>
-        <div class="container">
-            <div class="card card-login">
-                <h2>Olá de volta!</h2>
-                <div class="formulario">
-                    <div class="campo">
-                        <span>E-mail:</span>
-                        <input id="email_input" type="text" placeholder="Login">
-                    </div>
-                    <div class="campo">
-                        <span>Senha:</span>
-                        <input id="senha_input" type="text" placeholder="******">
-                    </div>
-                    <button class="botao" onclick="entrar()">Entrar</button>
-                </div>
+        <div id="login">
+            <div class="img-login">
+                
+            </div>
+            <div class="form">
+                <h1 class="color-azul">Login</h1>
+                
+                <span class="texto-campo color-azul">E-mail</span><br>
+                <input id="email_input" type="email" class="campo"><br>
+
+                <span class="texto-campo color-azul">Senha</span><br>
+                <input id="senha_input" type="password" class="campo"> <br>
+
+                <span class="alerta-form">Não tem cadastro? <a href="cadastro.html" class="color-azul">Cadastre-se</a></span><BR></BR>
+
+                <button class="back-azul" onclick="entrar()">Entrar</button>
+            </div>
+            
+        </div>
 
                 <div id="div_aguardar" class="loading-div">
                     <img src="./assets/circle-loading.gif" id="loading-gif">

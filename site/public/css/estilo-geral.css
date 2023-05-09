@@ -34,6 +34,10 @@ body {
     color: #39B983;
 }
 
+.color-azul {
+    color: #8EC7DF;
+}
+
 /*textos*/
 .titulo {
     display: flex;
