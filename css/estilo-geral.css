@@ -30,6 +30,10 @@ body {
     color: #5d91d4e3;
 }
 
+.color-verde {
+    color: #39B983;
+}
+
 /*textos*/
 .titulo {
     display: flex;
