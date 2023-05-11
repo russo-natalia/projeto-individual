@@ -234,9 +234,9 @@
 
 /*saiba mais*/
 .titulo-saiba-mais {
-    background-color:  #8EC7DF;
-    /* background-image: url(../img/fundo-saiba-mais.png);
-    background-size: cover; */
+    /* background-color:  #8EC7DF; */
+    background-image: url(../img/fundo-saiba-mais.png);
+    background-size: cover;
     height: 170px;
     width: 100%;
     color: white;
@@ -248,8 +248,8 @@
 
 .titulo-saiba-mais .header .container ul li a {
    font-weight: 400;
-   color: black;
 }
+
 
 .titulo-h1 {
     width: 100%;
@@ -277,9 +277,20 @@
     align-items: flex-end;
 }
 
+.saiba3 {
+    margin-top: 50px;
+    height: 500px;
+    display: flex;
+    justify-content: space-between;
+}
+
 .saiba2 img {
     width: 900px;
     align-self: center;
+}
+.saiba2 span {
+    align-self: center;
+
 }
 
 .saiba2 .bloco-texto {
@@ -290,7 +301,7 @@
 
 
 .saiba1 img {
-    width: 600px;
+    height: 500px;
 }
 
 .saiba1 .linha, .saiba2 .linha {
@@ -300,4 +311,8 @@
 .img-saiba1 {
     display: flex;
     flex-direction: column;
+}
+
+.img-saiba3 img {
+    width: 700px;
 }
