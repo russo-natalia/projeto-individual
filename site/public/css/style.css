@@ -234,8 +234,9 @@
 
 /*saiba mais*/
 .titulo-saiba-mais {
-    background-image: url(../img/fundo-saiba-mais.png);
-    background-size: cover;
+    background-color:  #8EC7DF;
+    /* background-image: url(../img/fundo-saiba-mais.png);
+    background-size: cover; */
     height: 170px;
     width: 100%;
     color: white;
@@ -269,18 +270,22 @@
 
 .saiba2 {
     margin-top: 50px;
-    height: 500px;
+    height: 700px;
+    width: 100%;
     display: flex;
     flex-direction: column;
-
+    align-items: flex-end;
 }
 
 .saiba2 img {
-    width: 700px;
+    width: 900px;
+    align-self: center;
 }
 
 .saiba2 .bloco-texto {
     margin-right: 0;
+    display: flex;
+    justify-content: flex-end;
 }
 
 
