@@ -1,4 +1,4 @@
-![image](https://user-images.githubusercontent.com/125298390/236274141-53957d72-7717-4d54-b36b-585bc52d3285.png)
+![image](![fundo-readme](https://github.com/russo-natalia/projeto-individual/assets/125298390/dc72cf72-fed4-49c7-818f-750cd18274c2))
 
 
 
