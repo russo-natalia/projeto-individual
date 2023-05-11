@@ -1,4 +1,4 @@
-![image](https://user-images.githubusercontent.com/125298390/236274141-53957d72-7717-4d54-b36b-585bc52d3285.png)
+![image](site/public/img/fundo-readme.png)
 
 
 
