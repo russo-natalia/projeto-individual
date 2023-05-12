@@ -38,6 +38,16 @@
 
 .alternativas:hover {
     background-image: url(../img/fundo-roxo.png);
+    cursor: pointer;
+}
+
+.alternativas label {
+    padding: 100%;
+    cursor: pointer;
+}
+
+.alternativas::selection {
+    border: solid 2px #5d91d4e3;
 }
 
 .botao-questionario {

@@ -33,11 +33,11 @@
             <span class=" color-roxo">Escolha uma das opções:</span><br>
             <div class="respostas">
                 <div class="alternativas urbano">
-                    <input type="radio" id="urbano" name="input_pergunta1" value="urbano">
+                    <input type="radio" class="hidden" id="urbano" name="input_pergunta1" value="urbano">
                     <label for="urbano">Urbano</label><br>
                 </div>
                 <div class="alternativas natureza">
-                    <input type="radio" id="natureza" name="input_pergunta1" value="natureza">
+                    <input type="radio" class="hidden" id="natureza" name="input_pergunta1" value="natureza">
                     <label for="natureza" >Natureza</label><br>
                 </div>
             </div>
@@ -95,7 +95,7 @@
         var respostaPergunta1 = document.querySelector("input[name='input_pergunta1']:checked");
         if (respostaPergunta1 == null) {
             alert('Escolha uma alternativa.')
-        } else if (respostaPergunta1 == 'urbano'){
+        } else if (respostaPergunta1.value == 'urbano'){
             obra1 += 1;
             obra2 += 1;
             div_questionario.innerHTML = `
@@ -125,7 +125,7 @@
                 <div class="localizacao"></div>
             </div>
             `
-        } else if (respostaPergunta1 == 'natureza') {
+        } else if (respostaPergunta1.value == 'natureza') {
             obra3 += 1;
             obra4 += 1;
             obra5 += 1;
