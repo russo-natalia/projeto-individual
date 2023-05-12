@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/style.css">  
     <link rel="stylesheet" href="css/estilo-geral.css">
     <link rel="stylesheet" href="css/formulario.css">
+    <link rel="stylesheet" href="css/questionario.css">
     <title>Abstract | Questionário</title>
 </head>
 <body>
@@ -28,19 +29,19 @@
         <span>Olá, <b id="nome_usuario">Fulana</b></span>
     </div>
     <div class="conteudo">
-        <div class="questionario">
+        <div class="questionario" id="div_questionario">
             <span class=" color-roxo">Escolha uma das opções:</span><br>
             <div class="respostas">
                 <div class="alternativas urbano">
-                    <input type="radio" class="hidden" id="urbano" value="urbano">
+                    <input type="radio" class="hidden" name="input_pergunta1" value="urbano">
                     <label for="urbano">Urbano</label><br>
                 </div>
                 <div class="alternativas natureza">
-                    <input type="radio" class="hidden" id="natureza" value="natureza">
+                    <input type="radio" class="hidden" name="input_pergunta1" value="natureza">
                     <label for="natureza" >Natureza</label><br>
                 </div>
             </div>
-            <button class="botao-questionario back-roxo">
+            <button onclick="pergunta1()" class="botao-questionario back-roxo">
                 Próxima Questão
             </button><br>
             <div class="progresso">
@@ -82,3 +83,47 @@
     </div>
 </body>
 </html>
+<script>
+    
+    function pergunta1() {
+        // var respostaPergunta1 =  input_pergunta1.value;
+        div_questionario.innerHTML = `
+            <span class=" color-roxo">Escolha uma das opções:</span><br>
+            <div class="respostas">
+                <div class="alternativas vivas">
+                    <input type="radio" class="hidden" name="input_pergunta2" value="coresVivas">
+                    <label for="input_pergunta2">Cores Vivas</label><br>
+                </div>
+                <div class="alternativas neutras">
+                    <input type="radio" class="hidden" name="input_pergunta2" value="coresNeutras">
+                    <label for="input_pergunta2" >Cores Neutras</label><br>
+                </div>
+                <div class="alternativas pasteis">
+                    <input type="radio" class="hidden" name="input_pergunta2" value="coresPasteis">
+                    <label for="input_pergunta2" >Cores Pastéis</label><br>
+                </div>
+            </div>
+            <button onclick="pergunta2()" class="botao-questionario back-roxo">
+                Próxima Questão
+            </button><br>
+            <div class="progresso">
+                <div class="localizacao back-roxo"></div>
+                <div class="localizacao back-roxo"></div>
+                <div class="localizacao"></div>
+                <div class="localizacao"></div>
+                <div class="localizacao"></div>
+            </div>
+            `
+        // if (respostaPergunta1 == 'urbano') {
+        //     //adicionar o valor 1 à variavel das obras 
+            
+        // } else if (respostaPergunta1 == 'natureza' ) {
+        //     //adicionar o valor 1 à variavel das obras 
+        //     //mudar innerHTML
+        // } else {
+        //     alert('Escolha uma alternativa.')
+        // }
+    }
+
+
+</script>
