@@ -1,10 +1,10 @@
 .urbano {
     background-image: url(../img/urbano.png);
-    background-size: contain;
+    background-size: cover;
 }
 .natureza {
     background-image: url(../img/natureza.jfif);
-    background-size: contain;
+    background-size: cover;
 }
 .vivas {
     background-image: url(../img/vivas.jfif);
@@ -105,9 +105,9 @@
     cursor: pointer;
 }
 
-.alternativas:checked {
+input[type=radio]:checked ~ .alternativas {
     border: 3px solid #333;
- }
+}
 
 .botao-questionario {
     border: none;
