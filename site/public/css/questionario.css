@@ -23,17 +23,47 @@
     background-size: contain;
 }
 
+.sentimental {
+    background-image: url(../img/sentimental.jfif);
+    background-size: cover;
+}
+
+.inteligente {
+    background-image: url(../img/inteligente.jfif);
+    background-size: cover;
+}
+
+.comunicativo {
+    background-image: url(../img/comunicativo.png);
+    background-size: cover;
+}
+
+.disciplinado {
+    background-image: url(../img/disciplinado.jfif);
+    background-size: cover;
+}
+
+.descontraido {
+    background-image: url(../img/descontraido.jfif);
+    background-size: cover;
+}
+
+
+
+
 .alternativas {
     width: 200px;
     height: 100px;
     display: flex;
     justify-content: center;
+    text-align: center;
     align-items: center;
     font-size: 20px;
     border-radius: 20px;
     color: white;
     transition: 0.5s;
     font-weight: lighter;
+    margin: 0px 5px;
 }
 
 .alternativas:hover {
@@ -42,13 +72,13 @@
 }
 
 .alternativas label {
-    padding: 100%;
+    padding: 20% 25%;
     cursor: pointer;
 }
 
-.alternativas::selection {
-    border: solid 2px #5d91d4e3;
-}
+.alternativas:checked {
+    border: 3px solid #333;
+ }
 
 .botao-questionario {
     border: none;
@@ -68,7 +98,7 @@
 }
 
 .questionario {
-    width: 60%;
+    width: 70%;
     height: 500px;
     border: solid;
     border-color: #5d91d4e3;

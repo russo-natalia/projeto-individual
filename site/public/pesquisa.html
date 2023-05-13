@@ -33,7 +33,7 @@
             <span class=" color-roxo">Escolha uma das opções:</span><br>
             <div class="respostas">
                 <div class="alternativas urbano">
-                    <input type="radio" class="hidden" id="urbano" name="input_pergunta1" value="urbano">
+                    <input type="radio" class="hidden" id="urbano" name="input_pergunta1" value="urbano" checked>
                     <label for="urbano">Urbano</label><br>
                 </div>
                 <div class="alternativas natureza">
@@ -84,82 +84,210 @@
 </body>
 </html>
 <script>
+    // definindo var das obras (somar resultado)
     var obra1 = 0;
     var obra2 = 0;
     var obra3 = 0;
     var obra4 = 0;
     var obra5 = 0;
+    // lista com todas as repostas do usuario
+    var listaRepostas = [];
 
     function pergunta1() {
-        // var respostaPergunta1 =  input_pergunta1.value;
+        // pegando a resposta 
         var respostaPergunta1 = document.querySelector("input[name='input_pergunta1']:checked");
+
+        //definindo a proxima pagina
+        var pagina2 = `
+            <span class=" color-roxo">Escolha uma das opções:</span><br>
+            <div class="respostas">
+                <div class="alternativas vivas">
+                    <input type="radio" id="coresVivas" class="hidden" name="input_pergunta2" value="coresVivas">
+                    <label for="coresVivas">Cores Vivas</label><br>
+                </div>
+                <div class="alternativas neutras">
+                    <input type="radio" id="coresNeutras" class="hidden" name="input_pergunta2" value="coresNeutras">
+                    <label for="coresNeutras" >Cores Neutras</label><br>
+                </div>
+                <div class="alternativas pasteis">
+                    <input type="radio" id="coresPasteis" class="hidden" name="input_pergunta2" value="coresPasteis">
+                    <label for="coresPasteis" >Cores Pastéis</label><br>
+                </div>
+            </div>
+            <button onclick="pergunta2()" class="botao-questionario back-roxo">
+                Próxima Questão
+            </button><br>
+            <div class="progresso">
+                <div class="localizacao back-roxo"></div>
+                <div class="localizacao back-roxo"></div>
+                <div class="localizacao"></div>
+                <div class="localizacao"></div>
+                <div class="localizacao"></div>
+            </div>
+            `
+            
+        // validando seu conteudo
         if (respostaPergunta1 == null) {
             alert('Escolha uma alternativa.')
         } else if (respostaPergunta1.value == 'urbano'){
+            // somando às var obras
             obra1 += 1;
-            obra2 += 1;
-            div_questionario.innerHTML = `
-            <span class=" color-roxo">Escolha uma das opções:</span><br>
-            <div class="respostas">
-                <div class="alternativas vivas">
-                    <input type="radio" class="hidden" name="input_pergunta2" value="coresVivas">
-                    <label for="input_pergunta2">Cores Vivas</label><br>
-                </div>
-                <div class="alternativas neutras">
-                    <input type="radio" class="hidden" name="input_pergunta2" value="coresNeutras">
-                    <label for="input_pergunta2" >Cores Neutras</label><br>
-                </div>
-                <div class="alternativas pasteis">
-                    <input type="radio" class="hidden" name="input_pergunta2" value="coresPasteis">
-                    <label for="input_pergunta2" >Cores Pastéis</label><br>
-                </div>
-            </div>
-            <button onclick="pergunta2()" class="botao-questionario back-roxo">
-                Próxima Questão
-            </button><br>
-            <div class="progresso">
-                <div class="localizacao back-roxo"></div>
-                <div class="localizacao back-roxo"></div>
-                <div class="localizacao"></div>
-                <div class="localizacao"></div>
-                <div class="localizacao"></div>
-            </div>
-            `
-        } else if (respostaPergunta1.value == 'natureza') {
-            obra3 += 1;
             obra4 += 1;
             obra5 += 1;
-
-            div_questionario.innerHTML = `
-            <span class=" color-roxo">Escolha uma das opções:</span><br>
-            <div class="respostas">
-                <div class="alternativas vivas">
-                    <input type="radio" class="hidden" name="input_pergunta2" value="coresVivas">
-                    <label for="input_pergunta2">Cores Vivas</label><br>
-                </div>
-                <div class="alternativas neutras">
-                    <input type="radio" class="hidden" name="input_pergunta2" value="coresNeutras">
-                    <label for="input_pergunta2" >Cores Neutras</label><br>
-                </div>
-                <div class="alternativas pasteis">
-                    <input type="radio" class="hidden" name="input_pergunta2" value="coresPasteis">
-                    <label for="input_pergunta2" >Cores Pastéis</label><br>
-                </div>
-            </div>
-            <button onclick="pergunta2()" class="botao-questionario back-roxo">
-                Próxima Questão
-            </button><br>
-            <div class="progresso">
-                <div class="localizacao back-roxo"></div>
-                <div class="localizacao back-roxo"></div>
-                <div class="localizacao"></div>
-                <div class="localizacao"></div>
-                <div class="localizacao"></div>
-            </div>
-            `
+            // adicionando na lista de repostas
+            listaRepostas.push('urbano');
+            
+            // trocando o html da página
+            div_questionario.innerHTML = pagina2;
+        } else if (respostaPergunta1.value == 'natureza') {
+            obra3 += 1;
+            obra2 += 1;
+            listaRepostas.push('natureza');
+            // trocando o html da página
+            div_questionario.innerHTML = pagina2;
         }
         
     
+    }
+
+    function pergunta2() {
+        // pegando a resposta 
+        var respostaPergunta2 = document.querySelector("input[name='input_pergunta2']:checked");
+        //definindo a proxima pagina
+        var pagina3 = `
+            <span class=" color-roxo">Qual dessas características mais te representa?</span><br>
+            <div class="respostas">
+                <div class="alternativas sentimental">
+                    <input type="radio" id="sentimental" class="hidden" name="input_pergunta3" value="sentimental">
+                    <label for="sentimental">Sentimental</label><br>
+                </div>
+                <div class="alternativas inteligente">
+                    <input type="radio" id="inteligente" class="hidden" name="input_pergunta3" value="inteligente">
+                    <label for="inteligente" >Inteligente</label><br>
+                </div>
+                <div class="alternativas comunicativo">
+                    <input type="radio" id="comunicativo" class="hidden" name="input_pergunta3" value="comunicativo">
+                    <label for="comunicativo" >Comunicativo</label><br>
+                </div>
+                <div class="alternativas disciplinado">
+                    <input type="radio" id="disciplinado" class="hidden" name="input_pergunta3" value="disciplinado">
+                    <label for="disciplinado" >Disciplinado</label><br>
+                </div>
+                <div class="alternativas descontraido">
+                    <input type="radio" id="descontraido" class="hidden" name="input_pergunta3" value="descontraido">
+                    <label for="descontraido" >Descontraido</label><br>
+                </div>
+            </div>
+            <button onclick="pergunta3()" class="botao-questionario back-roxo">
+                Próxima Questão
+            </button><br>
+            <div class="progresso">
+                <div class="localizacao back-roxo"></div>
+                <div class="localizacao back-roxo"></div>
+                <div class="localizacao back-roxo"></div>
+                <div class="localizacao"></div>
+                <div class="localizacao"></div>
+            </div>
+            `
+            
+        // validando seu conteudo
+        if (respostaPergunta2 == null) {
+            alert('Escolha uma alternativa.')
+        } else if (respostaPergunta2.value == 'coresVivas'){
+            // somando às var obras
+            obra2 += 1;
+            obra3 += 1;
+            // adicionando na lista de repostas
+            listaRepostas.push('coresVivas');
+            
+            // trocando o html da página
+            div_questionario.innerHTML = pagina3;
+        } else if (respostaPergunta2.value == 'coresPasteis') {
+            obra1 += 1;
+            listaRepostas.push('coresPasteis');
+            // trocando o html da página
+            div_questionario.innerHTML = pagina3;
+        } else if (respostaPergunta2.value == 'coresNeutras') {
+            obra4 += 1;
+            obra5 += 1;
+            listaRepostas.push('coresNeutras');
+            // trocando o html da página
+            div_questionario.innerHTML = pagina3;
+        }
+    }
+
+    function pergunta3() {
+        // pegando a resposta 
+        var respostaPergunta3 = document.querySelector("input[name='input_pergunta3']:checked");
+        //definindo a proxima pagina
+        var pagina4 = `
+            <span class=" color-roxo">Qual dessas atividades mais te agrada?</span><br>
+            <div class="respostas">
+                <div class="alternativas ler">
+                    <input type="radio" id="ler" class="hidden" name="input_pergunta4" value="ler">
+                    <label for="ler">Ler</label><br>
+                </div>
+                <div class="alternativas passear">
+                    <input type="radio" id="passear" class="hidden" name="input_pergunta4" value="passear">
+                    <label for="passear" >Passear</label><br>
+                </div>
+                <div class="alternativas jantar">
+                    <input type="radio" id="jantar" class="hidden" name="input_pergunta4" value="jantar">
+                    <label for="jantar" >Jantar Fora</label><br>
+                </div>
+                <div class="alternativas fisica">
+                    <input type="radio" id="fisica" class="hidden" name="input_pergunta4" value="fisica">
+                    <label for="fisica" >Atividade Física</label><br>
+                </div>
+                <div class="alternativas amigos">
+                    <input type="radio" id="amigos" class="hidden" name="input_pergunta4" value="amigos">
+                    <label for="amigos" >Encontro com Amigos</label><br>
+                </div>
+            </div>
+            <button onclick="pergunta4()" class="botao-questionario back-roxo">
+                Próxima Questão
+            </button><br>
+            <div class="progresso">
+                <div class="localizacao back-roxo"></div>
+                <div class="localizacao back-roxo"></div>
+                <div class="localizacao back-roxo"></div>
+                <div class="localizacao back-roxo"></div>
+                <div class="localizacao"></div>
+            </div>
+            `
+            
+        // validando seu conteudo
+        if (respostaPergunta3 == null) {
+            alert('Escolha uma alternativa.')
+        } else if (respostaPergunta3.value == 'sentimental'){
+            // somando às var obras
+            obra2 += 2;
+            // adicionando na lista de repostas
+            listaRepostas.push('sentimental');
+            
+            // trocando o html da página
+            div_questionario.innerHTML = pagina4;
+        } else if (respostaPergunta3.value == 'inteligente') {
+            obra3 += 2;
+            listaRepostas.push('inteligente');
+            // trocando o html da página
+            div_questionario.innerHTML = pagina4;
+        } else if (respostaPergunta3.value == 'comunicativo') {
+            obra1 += 2;
+            listaRepostas.push('comunicativo');
+            // trocando o html da página
+            div_questionario.innerHTML = pagina4;
+        } else if (respostaPergunta3.value == 'disciplinado') {
+            obra5 += 2;
+            listaRepostas.push('disciplinado');
+            // trocando o html da página
+            div_questionario.innerHTML = pagina4;
+        } else if (respostaPergunta3.value == 'descontraido') {
+            obra4 += 2;
+            listaRepostas.push('descontraido');
+            // trocando o html da página
+            div_questionario.innerHTML = pagina4;
+        }
     }
 
 
