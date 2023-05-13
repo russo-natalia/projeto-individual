@@ -2,51 +2,80 @@
     background-image: url(../img/urbano.png);
     background-size: contain;
 }
-
 .natureza {
     background-image: url(../img/natureza.jfif);
     background-size: contain;
 }
-
 .vivas {
     background-image: url(../img/vivas.jfif);
     background-size: contain;
 }
-
 .pasteis {
     background-image: url(../img/pasteis.png);
     background-size: contain;
 }
-
 .neutras {
     background-image: url(../img/neutras.png);
     background-size: contain;
 }
-
 .sentimental {
     background-image: url(../img/sentimental.jfif);
     background-size: cover;
 }
-
 .inteligente {
     background-image: url(../img/inteligente.jfif);
     background-size: cover;
 }
-
 .comunicativo {
     background-image: url(../img/comunicativo.png);
     background-size: cover;
 }
-
 .disciplinado {
     background-image: url(../img/disciplinado.jfif);
     background-size: cover;
 }
-
 .descontraido {
     background-image: url(../img/descontraido.jfif);
     background-size: cover;
 }
+.ler {
+    background-image: url(../img/ler.jpg);
+    background-size: cover;
+}
+.jantar {
+    background-image: url(../img/jantar.jpg);
+    background-size: cover;
+}
+.passear {
+    background-image: url(../img/passear.jfif);
+    background-size: cover;
+}
+.fisica {
+    background-image: url(../img/fisica.jfif);
+    background-size: cover;
+}
+.amigos {
+    background-image: url(../img/amigos.jfif);
+    background-size: cover;
+}
+.verao {
+    background-image: url(../img/verao.jfif);
+    background-size: cover;
+}
+
+.inverno {
+    background-image: url(../img/inverno.jfif);
+    background-size: cover;
+}
+.outono {
+    background-image: url(../img/outono.jfif);
+    background-size: cover;
+}
+.primavera {
+    background-image: url(../img/primavera.jfif);
+    background-size: cover;
+}
+
 
 
 
