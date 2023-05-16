@@ -76,10 +76,6 @@
     background-size: cover;
 }
 
-
-
-
-
 .alternativas {
     width: 200px;
     height: 100px;
@@ -105,9 +101,13 @@
     cursor: pointer;
 }
 
-input[type=radio]:checked ~ .alternativas {
-    border: 3px solid #333;
+.alternativas:active {
+    background-image: url(../img/fundo-roxo.png);
 }
+
+/* input[type=radio]:checked ~ .alternativas {
+    border: 3px solid #333;
+} */
 
 .botao-questionario {
     border: none;

@@ -93,6 +93,10 @@
     transition: 0.5s;
 }
 
+.card-mais-sobre a {
+    padding: 10px 700px 10px 0px;
+}
+
 .card-mais-sobre:hover{
     -webkit-transform: scale(1.05);
     transform: scale(1.05);
