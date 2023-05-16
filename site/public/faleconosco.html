@@ -32,10 +32,10 @@
         <div class="form">
             <h1 class="color-verde">Fale Conosco</h1>
             <span class="texto-campo color-verde">E-mail</span><br>
-            <input type="email" class="campo"> <br>
-            <span class="texto-campo color-verde">Mensagem</span><br>
+            <input type="email" class="campo" id="input_email_fale"> <br>
+            <span class="texto-campo color-verde" id="input_mensagem_fale">Mensagem</span><br>
             <input type="text-area" class="campo"> <br> 
-            <button class="back-verde">
+            <button class="back-verde" onclick="fale()">
                 Enviar
             </button><br>
             <span class="alerta-form">Enviaremos a resposta ao e-mail indicado acima.</span>
@@ -77,3 +77,62 @@
 </body>
 
 </html>
+<script>
+    function fale() {
+        //declaracao de variaveis 
+        var emailFaleVar = input_email_fale;
+        var mensagemFaleVar = input_mansagem_fale;
+
+        if (emailFaleVar == "" || mensagemFaleVar == "" ) {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+
+            finalizarAguardar();
+            return false;
+        }
+        else {
+            setInterval(sumirMensagem, 5000)
+        }
+
+        // Enviando o valor da nova input
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                emailFaleServer: emailFaleVar,
+                mensagemFaleServer: mensagemFaleVar
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                cardErro.style.display = "block";
+
+                mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+                setTimeout(() => {
+                    window.location = "faleconosco.html";
+                }, "2000")
+
+                limparFormulario();
+                finalizarAguardar();
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            finalizarAguardar();
+        });
+
+        return false;
+    }
+
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
+</script>
