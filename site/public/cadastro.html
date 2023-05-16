@@ -59,6 +59,7 @@
 
                 <span class="texto-campo color-azul">Senha</span><br>
                 <input id="senha_input" type="password" class="campo"> <br>
+                <span class="alerta-form">Senha deve ter no mínimo 8 caracteres.</span> <br>
 
                 <span class="texto-campo color-azul">Confirmar Senha</span><br>
                 <input id="confirmacao_senha_input" type="password" class="campo"><br>
@@ -129,15 +130,24 @@
         var confirmacaoSenhaVar = confirmacao_senha_input.value;
 
         if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
-
-            finalizarAguardar();
+            // cardErro.style.display = "block"
+            // mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            alert('Preencha todos os campos.')
+            // finalizarAguardar();
             return false;
+        } else if (emailVar.indexOf('@') < 0 || emailVar.indexOf('.') < 0) {
+            alert('Insira um e-mail válido.')
+            return false;
+        } else if (telefoneVar.length != 14) {
+            alert('Insira um telefone válido.')
+            return false;
+        } else if (senhaVar.length < 8) {
+            alert('Insira uma senha com mais de 8 caracteres.')
+            return false;
+        } else {
+            setInterval( 5000)
         }
-        else {
-            setInterval(sumirMensagem, 5000)
-        }
+        
 
         // Enviando o valor da nova input
         fetch("/usuarios/cadastrar", {
@@ -160,29 +170,29 @@
             console.log("resposta: ", resposta);
 
             if (resposta.ok) {
-                cardErro.style.display = "block";
+                // cardErro.style.display = "block";
 
-                mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+                // mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
 
                 setTimeout(() => {
                     window.location = "login.html";
                 }, "2000")
 
-                limparFormulario();
-                finalizarAguardar();
-            } else {
-                throw ("Houve um erro ao tentar realizar o cadastro!");
-            }
-        }).catch(function (resposta) {
+            //     limparFormulario();
+            //     finalizarAguardar();
+            // } else {
+            //     throw ("Houve um erro ao tentar realizar o cadastro!");
+             }})
+        .catch(function (resposta) {
             console.log(`#ERRO: ${resposta}`);
-            finalizarAguardar();
+            // finalizarAguardar();
         });
 
         return false;
     }
 
-    function sumirMensagem() {
-        cardErro.style.display = "none"
-    }
+    // function sumirMensagem() {
+    //     cardErro.style.display = "none"
+    // }
 
 </script>
