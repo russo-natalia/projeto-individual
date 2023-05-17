@@ -177,9 +177,11 @@
     width: 700px;
 }
 .bloco-texto-pesquisa {
-    margin-left: 100px;
+    margin: 0px 100px ;
+    text-align: justify;
 }
 
 .titulo-obra {
-    font-size: 30px;
+    font-size: 25px;
+    margin-top: 50px;
 }

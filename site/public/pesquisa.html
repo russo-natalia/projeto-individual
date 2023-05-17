@@ -24,11 +24,11 @@
         </div>
     </div> 
     <!--Conteudo-->
-    <div id="titulo-pesquisa" class="titulo color-roxo">
+    <div id="titulo_pesquisa" class="titulo color-roxo">
         <span>Qual obra de arte te representa?</span>
         <span>Olá, <b id="nome_usuario">Fulana</b></span>
     </div>
-    <div class="conteudo" id="conteudo-pesquisa">
+    <div class="conteudo" id="conteudo_pesquisa">
         <div class="questionario" id="div_questionario">
             <span class=" color-roxo">Escolha uma das opções:</span><br>
             <div class="respostas">
@@ -366,9 +366,22 @@
         // pegando a resposta 
         var respostaPergunta5 = document.querySelector("input[name='input_pergunta5']:checked");
         //definindo a proxima pagina
-        var paginaResposta = `
-
-            
+        pagina5 = `
+            <div id="conteudo-pesquisa">
+                <div class="bloco-texto-pesquisa">
+                    <span class="titulo color-roxo"  style="margin-left: -5px;"><b id="nome_usuario_resultado"></b>, a obra que te representa é...</span><br><br>
+                    <b class="titulo-obra color-amarelo" id="nome_obra"></b><br>
+                    <span>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod ab, nam in nihil minima deserunt, doloribus animi voluptatum ea dolorum voluptates eveniet distinctio magnam incidunt perspiciatis nobis! Explicabo, provident adipisci? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima consequatur, animi eaque molestias numquam recusandae distinctio veniam, necessitatibus, eius a aliquam officiis reiciendis in possimus non quis. Qui, necessitatibus eum?
+                    </span>
+                    <button class="botao-questionario back-amarelo" onclick="reiniciar()">
+                        Reiniciar o teste
+                    </button>
+                </div>
+                <div class="img_pesquisa">
+                    <img src="img/obra1.jpg" alt="O Almoço dos Barqueiros – Renoir">
+                </div>
+           </div>
             `
             
         // validando seu conteudo
@@ -380,54 +393,58 @@
             obra2 += 1;
             // adicionando na lista de repostas
             listaRepostas.push('verao');
-            
             // trocando o html da página
             resultadoFinal()
-            div_questionario.innerHTML = pagina5;
-            
+            conteudo_pesquisa.innerHTML = pagina5;
         } else if (respostaPergunta5.value == 'inverno') {
             obra5 += 1;
             listaRepostas.push('inverno');
             // trocando o html da página
             resultadoFinal()
-            div_questionario.innerHTML = pagina5;
+            conteudo_pesquisa.innerHTML = pagina5;
         } else if (respostaPergunta5.value == 'outono') {
             obra4 += 1;
             listaRepostas.push('outono');
             // trocando o html da página
             resultadoFinal()
-            div_questionario.innerHTML = pagina5;
+            conteudo_pesquisa.innerHTML = pagina5;
         } else if (respostaPergunta5.value == 'primavera') {
             obra3 += 1;
             listaRepostas.push('primavera');
             // trocando o html da página
             resultadoFinal()
-            div_questionario.innerHTML = pagina5;
+            conteudo_pesquisa.innerHTML = pagina5;
         } 
     }
 
     function resultadoFinal() {
+            nome_usuario_resultado.innerHTML = sessionStorage.NOME_USUARIO;
         if (obra1 > obra2 && obra1 > obra3 && obra1 > obra4 && obra1 > obra5) {
-            pagina5 = `
-            <p> Parabéns obra 1
-            `
+            titulo_pesquisa.innerHTML = '';
+            nome_obra.innerHTML = 'O Almoço dos Barqueiros – Pierre-Auguste Renoir'
+            img_pesquisar.innerHTML = '<img src="img/obra1.jpg" alt="O Almoço dos Barqueiros – Renoir">';
+            sessionStorage.setItem("obra", "obra1");
 
         } else if (obra2 > obra1 && obra2 > obra3 && obra2 > obra4 && obra2 > obra5) {
             pagina5 = `
             <p> Parabéns obra 2
             `
+            sessionStorage.setItem("obra", "obra2");
         } else if (obra3 > obra1 && obra3 > obra2 && obra3 > obra4 && obra3 > obra5) {
             pagina5 = `
             <p> Parabéns obra 3
             `
+            sessionStorage.setItem("obra", "obra3");
         } else if (obra4 > obra1 && obra4 > obra3 && obra4 > obra2 && obra4 > obra5) {
             pagina5 = `
             <p> Parabéns obra 4
             `
+            sessionStorage.setItem("obra", "obra4");
         } else if (obra5 > obra1 && obra5 > obra3 && obra5 > obra4 && obra5 > obra2) {
             pagina5 = `
             <p> Parabéns obra 5
             `
+            sessionStorage.setItem("obra", "obra5");
         }
     }
 
