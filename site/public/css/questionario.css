@@ -105,9 +105,15 @@
     background-image: url(../img/fundo-roxo.png);
 }
 
-/* input[type=radio]:checked ~ .alternativas {
-    border: 3px solid #333;
-} */
+.active {
+    border: #5d91d4e3 solid 4px;
+}
+
+.alternativas:checked {
+    width: 500px;
+    display: flex;
+    border-radius: 3px solid #333;
+} 
 
 .botao-questionario {
     border: none;
