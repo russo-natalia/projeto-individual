@@ -24,11 +24,11 @@
         </div>
     </div> 
     <!--Conteudo-->
-    <div class="titulo color-roxo">
+    <div id="titulo-pesquisa" class="titulo color-roxo">
         <span>Qual obra de arte te representa?</span>
         <span>Olá, <b id="nome_usuario">Fulana</b></span>
     </div>
-    <div class="conteudo">
+    <div class="conteudo" id="conteudo-pesquisa">
         <div class="questionario" id="div_questionario">
             <span class=" color-roxo">Escolha uma das opções:</span><br>
             <div class="respostas">
@@ -367,6 +367,8 @@
         var respostaPergunta5 = document.querySelector("input[name='input_pergunta5']:checked");
         //definindo a proxima pagina
         var paginaResposta = `
+
+            
             `
             
         // validando seu conteudo
@@ -380,23 +382,53 @@
             listaRepostas.push('verao');
             
             // trocando o html da página
+            resultadoFinal()
             div_questionario.innerHTML = pagina5;
+            
         } else if (respostaPergunta5.value == 'inverno') {
             obra5 += 1;
             listaRepostas.push('inverno');
             // trocando o html da página
+            resultadoFinal()
             div_questionario.innerHTML = pagina5;
         } else if (respostaPergunta5.value == 'outono') {
             obra4 += 1;
             listaRepostas.push('outono');
             // trocando o html da página
+            resultadoFinal()
             div_questionario.innerHTML = pagina5;
         } else if (respostaPergunta5.value == 'primavera') {
             obra3 += 1;
             listaRepostas.push('primavera');
             // trocando o html da página
+            resultadoFinal()
             div_questionario.innerHTML = pagina5;
         } 
+    }
+
+    function resultadoFinal() {
+        if (obra1 > obra2 && obra1 > obra3 && obra1 > obra4 && obra1 > obra5) {
+            pagina5 = `
+            <p> Parabéns obra 1
+            `
+
+        } else if (obra2 > obra1 && obra2 > obra3 && obra2 > obra4 && obra2 > obra5) {
+            pagina5 = `
+            <p> Parabéns obra 2
+            `
+        } else if (obra3 > obra1 && obra3 > obra2 && obra3 > obra4 && obra3 > obra5) {
+            pagina5 = `
+            <p> Parabéns obra 3
+            `
+        } else if (obra4 > obra1 && obra4 > obra3 && obra4 > obra2 && obra4 > obra5) {
+            pagina5 = `
+            <p> Parabéns obra 4
+            `
+        } else if (obra5 > obra1 && obra5 > obra3 && obra5 > obra4 && obra5 > obra2) {
+            pagina5 = `
+            <p> Parabéns obra 5
+            `
+        }
     }
 
 

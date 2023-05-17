@@ -164,3 +164,22 @@
     border-radius: 5px;
     margin: 10px 5px;
 }
+
+/*RESULTADO*/
+#conteudo-pesquisa {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.img-pesquisa img {
+    width: 700px;
+}
+.bloco-texto-pesquisa {
+    margin-left: 100px;
+}
+
+.titulo-obra {
+    font-size: 30px;
+}

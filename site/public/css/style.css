@@ -134,7 +134,7 @@
     margin-bottom: 20px;
 }
 
-.bloco-texto span, p, h1{
+.artista span, p, h1{
     margin-left: 60px;
 }
 .img-artistas {
@@ -177,6 +177,7 @@
     cursor: pointer;
     
 }
+
 
 .bloco-img-quest img {
     width: 150px;
