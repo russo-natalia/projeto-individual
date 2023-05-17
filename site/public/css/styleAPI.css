@@ -9,6 +9,7 @@ body {
 
 .container {
   width: 80%;
+  
   margin: auto;
   display: flex;
 }
