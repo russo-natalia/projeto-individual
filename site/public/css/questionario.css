@@ -173,7 +173,7 @@
     align-items: center;
 }
 
-.img_pesquisa img {
+#img_pesquisa img {
     width: 630px;
 }
 .bloco-texto-pesquisa {
