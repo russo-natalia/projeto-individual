@@ -144,6 +144,9 @@
         } else if (senhaVar.length < 8) {
             alert('Insira uma senha com mais de 8 caracteres.')
             return false;
+        }else if (senhaVar != confirmacaoSenhaVar) {
+            alert('Confirme a senha novamente.')
+            return false;
         } else {
             setInterval( 5000)
         }
