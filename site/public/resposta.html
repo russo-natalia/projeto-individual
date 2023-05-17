@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/estilo-geral.css">
+    <link rel="stylesheet" href="css/style.css">   
+    <link rel="stylesheet" href="css/estilo-geral.css"> 
     <link rel="stylesheet" href="css/questionario.css">
     <title>Abstract | Resultado</title>
 </head>
-
 <body>
     <!--Menu-->
     <div class="header back-roxo">
@@ -23,65 +21,27 @@
                 <li><a href="index.html">Sair</a></li>
             </ul>
         </div>
-    </div>
+    </div> 
+
+    titulo-pesquisa.innerHTML = '';
+    conteudo-pesquisa.innerHTML = ' ';
 
     <div id="conteudo-pesquisa">
         <div class="bloco-texto-pesquisa">
-            <span class="titulo color-roxo" style="margin-left: -5px;"><b id="nome_usuario_teste">nat</b>, a obra que te
-                representa é...</span><br><br>
-            <b class="titulo-obra color-amarelo" id="nome_obra">obra</b><br>
-            <b class="subtitulo color-amarelo" id="nome_artista">artista</b><br>
-            <span class="subtitulo color-amarelo" id="ano_obra" style="font-weight: 300;">ano</span><br>
-            <span id="texto_pesquisa">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod ab, nam in nihil minima deserunt,
-                doloribus animi voluptatum ea dolorum voluptates eveniet distinctio magnam incidunt perspiciatis nobis!
-                Explicabo, provident adipisci? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima
-                consequatur, animi eaque molestias numquam recusandae distinctio veniam, necessitatibus, eius a aliquam
-                officiis reiciendis in possimus non quis. Qui, necessitatibus eum?
+            <span class="titulo color-roxo"  style="margin-left: -5px;"><b id="nome_usuario">nat</b>, a obra que te representa é...</span><br><br>
+            <b class="titulo-obra color-amarelo" id="nome-obra">obra1</b><br>
+            <span>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod ab, nam in nihil minima deserunt, doloribus animi voluptatum ea dolorum voluptates eveniet distinctio magnam incidunt perspiciatis nobis! Explicabo, provident adipisci? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima consequatur, animi eaque molestias numquam recusandae distinctio veniam, necessitatibus, eius a aliquam officiis reiciendis in possimus non quis. Qui, necessitatibus eum?
             </span>
             <button class="botao-questionario back-amarelo" onclick="reiniciar()">
                 Reiniciar o teste
             </button>
         </div>
-        <div class="img_pesquisa">
+        <div class="img-pesquisa">
             <img src="img/obra1.jpg" alt="O Almoço dos Barqueiros – Renoir">
         </div>
     </div>
 
-
-</body>
-
-</html>
-<script>
-    var resultado = localStorage.getItem('obra');
     
-    nome_usuario_teste.innerHTML = sessionStorage.NOME_USUARIO;
-
-    if (resultado == 'obra1') {
-        nome_obra.innerHTML = 'O Almoço dos Barqueiros';
-        nome_artista.innerHTML = 'Pierre-Auguste Renoir';
-        ano_obra.innerHTML = '1880-1881';
-        img_pesquisa.innerHTML = '<img src="img/obra1.jpg" alt="O Almoço dos Barqueiros – Renoir">';
-    } else if (resultado == 'obra2') {
-        nome_obra.innerHTML = 'O Jardim em Sainte-Adresse';
-        nome_artista.innerHTML = 'Claude Monet';
-        ano_obra.innerHTML = '1867';
-        img_pesquisa.innerHTML = '<img src="img/obra1.jpg" alt="O Almoço dos Barqueiros – Renoir">';
-    } else if (resultado == 'obra3') {
-        nome_obra.innerHTML = 'Adolphe Monet Reading in a Garden';
-        nome_artista.innerHTML = 'Claude Monet';
-        ano_obra.innerHTML = '1866';
-        img_pesquisa.innerHTML = '<img src="img/obra1.jpg" alt="O Almoço dos Barqueiros – Renoir">';
-    } else if (resultado == 'obra4') {
-        nome_obra.innerHTML = 'O Boulevard Montmartre, no fim da tarde';
-        nome_artista.innerHTML = 'Camille Pissarro';
-        ano_obra.innerHTML = '1897';
-        img_pesquisa.innerHTML = '<img src="img/obra1.jpg" alt="O Almoço dos Barqueiros – Renoir">';
-    } else if (resultado == 'obra5') {
-        nome_obra.innerHTML = 'A Aula de Dança';
-        nome_artista.innerHTML = 'Edgar Degas';
-        ano_obra.innerHTML = '1871–1874';
-        img_pesquisa.innerHTML = '<img src="img/obra1.jpg" alt="O Almoço dos Barqueiros – Renoir">';
-    }
-
-</script>
+</body>
+</html>
