@@ -77,10 +77,10 @@
 }
 
 #graficos_tentativas_linha {
-    /* box-shadow: 1px 15px 33px 11px rgba(0, 0, 0, 0.08); */
+    box-shadow: 1px 15px 33px 11px rgba(0, 0, 0, 0.08);
     border-radius: 20px;
     padding: 20px;
-    width: 90%;
+    width: 100%;
     height: fit-content;
     display: flex;
     margin: auto;
@@ -95,5 +95,9 @@
     width: 80%;
     margin: auto;
 
+}
+
+#ranking {
+    background-color: #5d91d430;
 }
 
