@@ -7,7 +7,9 @@
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/estilo-geral.css">
+    <link rel="stylesheet" href="css/dashboard.css">
     <title>Abstract | Painel Geral</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <!--Menu-->
@@ -26,10 +28,158 @@
         <span>Painel de Gráficos</span>
         <span>Olá, <b id="nome_usuario">Fulana</b></span>
     </div>
-    
+    <div id="navbar_painel">
+        <a href="#resultados_usuario" class="link-painel back-amarelo" >Seus Resultados</a>
+        <a href="#ranking" class="link-painel back-amarelo">Ranking Geral</a>
+        <a href="#impressionismo" class="link-painel back-amarelo">Impressionismo</a>
+    </div>
+
+    <div id="resultados_usuario">
+        <div class="titulo color-roxo">
+            <span>Seus Resultados</span>
+        </div>
+
+        <div class="linha-graficos">
+            <div id="lista_tentativas">
+                <span>Resultado mais frequente: <b id="obra_frequente_usuario" class="color-amarelo">O Almoço dos Barqueiros</b></span>
+                <div class="linha"></div>
+                <div class="linha-lista-tentativas" style="font-weight: bold;">
+                    <span>Tentativas</span>
+                    <span>Data</span>
+                </div>
+                <div id="tentativas_banco_dados">
+                <!-- puxar lista banco -->
+                </div>
+            </div>
+            <div id="grafico_resultados_pizza">
+                <!-- grafico pizza -->
+                <span class="subtitulo">Resultado das Tentativas</span>
+                    <canvas id="myChart"></canvas>
+            </div>
+        </div>
+        <div class="linha-graficos">
+            <div id="graficos_tentativas_linha">
+                <div>
+                    <span class="subtitulo">Tentativas x Meses</span>
+                    <canvas id="myChart2"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="ranking">
+
+    </div>
+
+    <div id="rodape">
+        <h1>Desenvolvido por Natália Russo</h1>
+        <div class="conteudo-rodape">
+            <div class="contato">
+                <span class="subtitulo">Contato</span><br>
+                <span>Telefone: (19) 99728-9318</span><br>
+                <span>E-mail: abstract@contato.com</span><br>
+                <span>Endereço: Rua Haddock Lobo, 595 - Cerqueira César</span><br>
+                <span> São Paulo - SP, 01414-001</span>
+                <div class="img-rodape">
+                    <a href=""><img src="img/whatsapp.png" alt="WhatsApp"></a>
+                    <a href=""><img src="img/instagram.png" alt="Instagram"></a>
+                    <a href=""><img src="img/facebook.png" alt="Facebook"></a>
+                    <a href=""><img src="img/linkedin.png" alt="LinkedIn"></a>
+                </div>
+            </div>
+            <div class="paginas">
+                <span class="subtitulo">Abstract.com.br</span><br>
+                <span><a href="index.html">Home</a></span><br>
+                <span><a href="saibamais.html">Saiba Mais</a></span><br>
+                <span><a href="artistas.html">Artistas</a></span><br>
+                <span><a href="faleconosco.html">Fale Conosco</a></span><br>
+                <span><a href="sobrenos.html">Sobre Nós</a></span><br>
+                <span><a href="login.html">Faça Login</a></span><br>
+                <span><a href="cadastro.html">Cadastre-se</a></span><br>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
 <script>
     nome_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
+    // PUXANDO RESULTADOS ILUSTRATIVOS PARA A LISTA DE TENTATIVAS DO USUARIO
+    function puxarTentativasBD() {
+    var listaTentativasUsuario = [
+        'O Almoço dos Barqueiros',
+        'O Boulevard Montmartre, no fim da tarde',
+        'O Almoço dos Barqueiros'
+    ]
+
+    var listaTentativasUsuarioData = [
+        '02/05/2023',
+        '02/05/2023',
+        '04/05/2023'
+    ]
+
+    for (var contador = 0; contador < 3; contador++) {
+       tentativas_banco_dados.innerHTML += `
+       <div class="linha-lista-tentativas">
+            <span>${listaTentativasUsuario[contador]}</span>
+            <span>${listaTentativasUsuarioData[contador]}</span>
+        </div>
+    ` 
+    }
+  
+    }
+    puxarTentativasBD()
+    
+
+    //GRÁFICO DE TENTATIVAS USUARIO PIZZa
+    const ctx = document.getElementById('myChart');
+
+    new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: [
+                    'O Almoço dos Barqueiros',
+                    'O Boulevard Montmartre'
+                ],
+                datasets: [{
+                    label: 'Resultados nas Tentativas',
+                    data: [70, 30],
+                    backgroundColor: [
+                    '#5d91d4e3',
+                    '#FFC531',
+                    ],
+                    hoverOffset: 4
+                }]}
+        });
+
+        //GRÁFICO DE TENTATIVAS USUARIO PIZZa
+        const ctx2 = document.getElementById('myChart2');
+       
+            new Chart(ctx2, {
+                type: 'bar',
+                data: {
+                labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
+                datasets: [{
+                    label: 'Tentativas x Meses',
+                    data: [1, 2, 0, 2, 1, 1],
+                    borderWidth: 1,
+                    backgroundColor: [
+                    '#5d91d4e3',
+                    '#5d91d4e3',
+                    '#5d91d4e3',
+                    '#5d91d4e3',
+                    '#5d91d4e3',
+                    '#5d91d4e3'
+                    ],
+                }]
+                },
+                options: {
+                scales: {
+                    y: {
+                    beginAtZero: true
+                    }
+                }
+                }
+            });
+    
 </script>

@@ -127,7 +127,7 @@
 }
 
 .questionario {
-    width: 70%;
+    width: 80%;
     height: 500px;
     border: solid;
     border-color: #5d91d4e3;
@@ -171,6 +171,7 @@
     width: 100%;
     justify-content: space-around;
     align-items: center;
+    margin: 80px 0px;
 }
 
 #img_pesquisa img {

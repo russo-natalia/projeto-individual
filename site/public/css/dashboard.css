@@ -1,0 +1,99 @@
+#navbar_painel {
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+    margin: auto;
+}
+
+.link-painel {
+    width: 20%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 20px;
+    border-radius: 30px;
+    color: white;
+    margin-bottom: 30px;
+    transition: 0.5s;
+}
+.link-painel:hover {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+/*seus resultados*/
+#resultados_usuario .titulo {
+    font-size: 26px;
+}
+
+.linha-graficos {
+    margin: 30px auto 50px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+}
+
+#lista_tentativas {
+    box-shadow: 1px 15px 27px 11px rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+    padding: 20px;
+    width: 50%;
+    height: fit-content;
+}
+#lista_tentativas .linha {
+    height: 2px;
+    width: 98%;
+    margin: 10px auto;
+    background-color: #00000030;
+    border-radius: 5px;
+}
+
+#lista_tentativas span {
+    margin: 20px;
+}
+
+.linha-lista-tentativas {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+}
+
+#grafico_resultados_pizza {
+    box-shadow: 1px 15px 27px 11px rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+    padding: 20px;
+    width: 40%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+}
+
+#myChart {
+    height: 200px;
+}
+
+#graficos_tentativas_linha {
+    /* box-shadow: 1px 15px 33px 11px rgba(0, 0, 0, 0.08); */
+    border-radius: 20px;
+    padding: 20px;
+    width: 90%;
+    height: fit-content;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    text-align: center;
+}
+#myChart2 {
+    width: 100%;
+}
+
+#graficos_tentativas_linha div {
+    width: 80%;
+    margin: auto;
+
+}
+
