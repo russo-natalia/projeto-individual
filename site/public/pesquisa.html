@@ -32,11 +32,11 @@
         <div class="questionario" id="div_questionario">
             <span class=" color-roxo">Escolha uma das opções:</span><br>
             <div class="respostas">
-                <div class="alternativas urbano" id="div_urbano" onclick="Teste()">
+                <div class="alternativas urbano" id="div_urbano">
                     <input type="radio" class="hidden" id="urbano" name="input_pergunta1" value="urbano">
                     <label for="urbano">Urbano</label><br>
                 </div>
-                <div class="alternativas natureza" id="div_natureza" onclick="Teste2()">
+                <div class="alternativas natureza" id="div_natureza">
                     <input type="radio" class="hidden" id="natureza" name="input_pergunta1" value="natureza">
                     <label for="natureza">Natureza</label><br>
                 </div>
@@ -84,26 +84,7 @@
 </body>
 </html>
 <script>
-    function Teste(){
-        div_urbano.style.border = "#5d91d4e3 solid 4px"
-        div_natureza.style.border = 'none'
-        // border: #5d91d4e3 solid 4px;
-    }
-    function Teste2(){
-        div_natureza.style.border = "#5d91d4e3 solid 4px"
-        div_urbano.style.border = 'none'
-    }
-    // colocando o seletor na div alternativas
-//     var borda = document.querySelector('.alternativas');
-//     var mostrar = document.querySelector('.active');
-
-// borda.addEventListener('click', function(){
-// if(mostrar.style.display === "none"){
-//     mostrar.style.display = "block"
-// } else{
-//     mostrar.style.display="none"
-// }
-// })
+    
 
     nome_usuario.innerHTML = sessionStorage.NOME_USUARIO;
     // definindo var das obras (somar resultado)

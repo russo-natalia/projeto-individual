@@ -86,7 +86,7 @@
     font-size: 20px;
     border-radius: 20px;
     color: white;
-    transition: 0.5s;
+    transition: 0.8s;
     font-weight: lighter;
     margin: 0px 5px;
 }
@@ -97,23 +97,17 @@
 }
 
 .alternativas label {
-    padding: 20% 25%;
+    width: 200px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
 }
-
-.alternativas:active {
-    background-image: url(../img/fundo-roxo.png);
-}
-
-.active {
+.alternativas input[type="radio"]:checked + label {
     border: #5d91d4e3 solid 4px;
+    border-radius: 20px;
 }
-
-.alternativas:checked {
-    width: 500px;
-    display: flex;
-    border-radius: 3px solid #333;
-} 
 
 .botao-questionario {
     border: none;
