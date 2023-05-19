@@ -96,6 +96,35 @@
     // lista com todas as repostas do usuario
     var listaRepostas = [];
 
+    var alternativas1 = [ 
+        `<div class="alternativas vivas">
+             <input type="radio" id="coresVivas" class="hidden" name="input_pergunta2" value="coresVivas">
+             <label for="coresVivas">Cores Vivas</label><br>
+        </div>`,
+        `<div class="alternativas neutras">
+            <input type="radio" id="coresNeutras" class="hidden" name="input_pergunta2" value="coresNeutras">
+            <label for="coresNeutras" >Cores Neutras</label><br>
+        </div>`,
+        `<div class="alternativas pasteis">
+            <input type="radio" id="coresPasteis" class="hidden" name="input_pergunta2" value="coresPasteis">
+            <label for="coresPasteis" >Cores Pastéis</label><br>
+        </div>`];
+
+    function alternativasAtuais1() {  
+        var quantidade = 3;
+        var resultado = '';
+
+        for (var contador = 0; contador < quantidade; contador++) {
+            var aleatorio1 = Math.random() * (alternativas1.length - 1);
+    
+            var formatado1 = aleatorio1.toFixed(); 
+            resultado += alternativas1[formatado1]
+            alternativas1.splice(formatado1,1)
+
+        }
+
+        return resultado;
+    }
 
     function pergunta1() {
         // pegando a resposta 
@@ -104,19 +133,8 @@
         //definindo a proxima pagina
         var pagina2 = `
             <span class=" color-roxo">Escolha uma das opções:</span><br>
-            <div class="respostas">
-                <div class="alternativas vivas">
-                    <input type="radio" id="coresVivas" class="hidden" name="input_pergunta2" value="coresVivas">
-                    <label for="coresVivas">Cores Vivas</label><br>
-                </div>
-                <div class="alternativas neutras">
-                    <input type="radio" id="coresNeutras" class="hidden" name="input_pergunta2" value="coresNeutras">
-                    <label for="coresNeutras" >Cores Neutras</label><br>
-                </div>
-                <div class="alternativas pasteis">
-                    <input type="radio" id="coresPasteis" class="hidden" name="input_pergunta2" value="coresPasteis">
-                    <label for="coresPasteis" >Cores Pastéis</label><br>
-                </div>
+            <div id='div_alternativas' class="respostas">
+                ${alternativasAtuais1()}    
             </div>
             <button onclick="pergunta2()" class="botao-questionario back-roxo">
                 Próxima Questão
@@ -154,6 +172,45 @@
     
     }
 
+    var alternativas2 = [
+        `<div class="alternativas sentimental">
+            <input type="radio" id="sentimental" class="hidden" name="input_pergunta3" value="sentimental">
+            <label for="sentimental">Sentimental</label><br>
+        </div>`,
+        `<div class="alternativas inteligente">
+            <input type="radio" id="inteligente" class="hidden" name="input_pergunta3" value="inteligente">
+            <label for="inteligente" >Inteligente</label><br>
+        </div>`,
+        `<div class="alternativas comunicativo">
+            <input type="radio" id="comunicativo" class="hidden" name="input_pergunta3" value="comunicativo">
+            <label for="comunicativo" >Comunicativo</label><br>
+        </div>`,
+        `<div class="alternativas disciplinado">
+            <input type="radio" id="disciplinado" class="hidden" name="input_pergunta3" value="disciplinado">
+            <label for="disciplinado" >Disciplinado</label><br>
+        </div>`,
+        `<div class="alternativas descontraido">
+            <input type="radio" id="descontraido" class="hidden" name="input_pergunta3" value="descontraido">
+            <label for="descontraido" >Descontraido</label><br>
+        </div>`];
+
+    function alternativasAtuais2() {  
+        var quantidade = 5;
+        var resultado = '';
+
+        for (var contador = 0; contador < quantidade; contador++) {
+            var aleatorio2 = Math.random() * (alternativas2.length - 1);
+    
+            var formatado2 = aleatorio2.toFixed(); 
+            resultado += alternativas2[formatado2]
+            alternativas2.splice(formatado2,1)
+
+        }
+
+        return resultado;
+    }
+
+
     function pergunta2() {
         // pegando a resposta 
         var respostaPergunta2 = document.querySelector("input[name='input_pergunta2']:checked");
@@ -161,26 +218,7 @@
         var pagina3 = `
             <span class=" color-roxo">Qual dessas características mais te representa?</span><br>
             <div class="respostas">
-                <div class="alternativas sentimental">
-                    <input type="radio" id="sentimental" class="hidden" name="input_pergunta3" value="sentimental">
-                    <label for="sentimental">Sentimental</label><br>
-                </div>
-                <div class="alternativas inteligente">
-                    <input type="radio" id="inteligente" class="hidden" name="input_pergunta3" value="inteligente">
-                    <label for="inteligente" >Inteligente</label><br>
-                </div>
-                <div class="alternativas comunicativo">
-                    <input type="radio" id="comunicativo" class="hidden" name="input_pergunta3" value="comunicativo">
-                    <label for="comunicativo" >Comunicativo</label><br>
-                </div>
-                <div class="alternativas disciplinado">
-                    <input type="radio" id="disciplinado" class="hidden" name="input_pergunta3" value="disciplinado">
-                    <label for="disciplinado" >Disciplinado</label><br>
-                </div>
-                <div class="alternativas descontraido">
-                    <input type="radio" id="descontraido" class="hidden" name="input_pergunta3" value="descontraido">
-                    <label for="descontraido" >Descontraido</label><br>
-                </div>
+                ${alternativasAtuais2()}  
             </div>
             <button onclick="pergunta3()" class="botao-questionario back-roxo">
                 Próxima Questão
@@ -220,6 +258,44 @@
         }
     }
 
+    var alternativas3 = [
+        `<div class="alternativas ler">
+            <input type="radio" id="ler" class="hidden" name="input_pergunta4" value="ler">
+            <label for="ler">Ler</label><br>
+        </div>`,
+        ` <div class="alternativas passear">
+            <input type="radio" id="passear" class="hidden" name="input_pergunta4" value="passear">
+            <label for="passear" >Passear</label><br>
+        </div>`,
+        `<div class="alternativas jantar">
+            <input type="radio" id="jantar" class="hidden" name="input_pergunta4" value="jantar">
+            <label for="jantar" >Jantar Fora</label><br>
+        </div>`,
+        `<div class="alternativas fisica">
+            <input type="radio" id="fisica" class="hidden" name="input_pergunta4" value="fisica">
+            <label for="fisica" >Atividade Física</label><br>
+        </div>`,
+        `<div class="alternativas amigos">
+            <input type="radio" id="amigos" class="hidden" name="input_pergunta4" value="amigos">
+            <label for="amigos" >Encontro com Amigos</label><br>
+        </div>`];
+
+    function alternativasAtuais3() {  
+        var quantidade = 5;
+        var resultado = '';
+
+        for (var contador = 0; contador < quantidade; contador++) {
+            var aleatorio3 = Math.random() * (alternativas3.length - 1);
+    
+            var formatado3 = aleatorio3.toFixed(); 
+            resultado += alternativas3[formatado3]
+            alternativas3.splice(formatado3,1)
+
+        }
+
+        return resultado;
+    }
+
     function pergunta3() {
         // pegando a resposta 
         var respostaPergunta3 = document.querySelector("input[name='input_pergunta3']:checked");
@@ -227,26 +303,7 @@
         var pagina4 = `
             <span class=" color-roxo">Qual dessas atividades mais te agrada?</span><br>
             <div class="respostas">
-                <div class="alternativas ler">
-                    <input type="radio" id="ler" class="hidden" name="input_pergunta4" value="ler">
-                    <label for="ler">Ler</label><br>
-                </div>
-                <div class="alternativas passear">
-                    <input type="radio" id="passear" class="hidden" name="input_pergunta4" value="passear">
-                    <label for="passear" >Passear</label><br>
-                </div>
-                <div class="alternativas jantar">
-                    <input type="radio" id="jantar" class="hidden" name="input_pergunta4" value="jantar">
-                    <label for="jantar" >Jantar Fora</label><br>
-                </div>
-                <div class="alternativas fisica">
-                    <input type="radio" id="fisica" class="hidden" name="input_pergunta4" value="fisica">
-                    <label for="fisica" >Atividade Física</label><br>
-                </div>
-                <div class="alternativas amigos">
-                    <input type="radio" id="amigos" class="hidden" name="input_pergunta4" value="amigos">
-                    <label for="amigos" >Encontro com Amigos</label><br>
-                </div>
+                ${alternativasAtuais3()}
             </div>
             <button onclick="pergunta4()" class="botao-questionario back-roxo">
                 Próxima Questão
@@ -294,6 +351,40 @@
         }
     }
 
+    var alternativas4 = [
+        `<div class="alternativas verao">
+            <input type="radio" id="verao" class="hidden" name="input_pergunta5" value="verao">
+            <label for="verao">Verão</label><br>
+        </div>`,
+        `<div class="alternativas inverno">
+            <input type="radio" id="inverno" class="hidden" name="input_pergunta5" value="inverno">
+            <label for="inverno" >Inverno</label><br>
+        </div>`,
+        `<div class="alternativas outono">
+            <input type="radio" id="outono" class="hidden" name="input_pergunta5" value="outono">
+            <label for="outono" >Outono</label><br>
+        </div>`,
+        `<div class="alternativas primavera">
+            <input type="radio" id="primavera" class="hidden" name="input_pergunta5" value="primavera">
+            <label for="primavera" >Primavera</label><br>
+        </div>`];
+
+    function alternativasAtuais4() {  
+        var quantidade = 4;
+        var resultado = '';
+
+        for (var contador = 0; contador < quantidade; contador++) {
+            var aleatorio4 = Math.random() * (alternativas4.length - 1);
+    
+            var formatado4 = aleatorio4.toFixed(); 
+            resultado += alternativas4[formatado4]
+            alternativas4.splice(formatado4,1)
+
+        }
+
+        return resultado;
+    }
+
     function pergunta4() {
         // pegando a resposta 
         var respostaPergunta4 = document.querySelector("input[name='input_pergunta4']:checked");
@@ -301,22 +392,7 @@
         var pagina5 = `
             <span class=" color-roxo">Qual estação você mais gosta?</span><br>
             <div class="respostas">
-                <div class="alternativas verao">
-                    <input type="radio" id="verao" class="hidden" name="input_pergunta5" value="verao">
-                    <label for="verao">Verão</label><br>
-                </div>
-                <div class="alternativas inverno">
-                    <input type="radio" id="inverno" class="hidden" name="input_pergunta5" value="inverno">
-                    <label for="inverno" >Inverno</label><br>
-                </div>
-                <div class="alternativas outono">
-                    <input type="radio" id="outono" class="hidden" name="input_pergunta5" value="outono">
-                    <label for="outono" >Outono</label><br>
-                </div>
-                <div class="alternativas primavera">
-                    <input type="radio" id="primavera" class="hidden" name="input_pergunta5" value="primavera">
-                    <label for="primavera" >Primavera</label><br>
-                </div>
+                ${alternativasAtuais4()}
             </div>
             <button onclick="pergunta5()" class="botao-questionario back-roxo">
                 Finalizar
@@ -367,24 +443,6 @@
     function pergunta5() {
         // pegando a resposta 
         var respostaPergunta5 = document.querySelector("input[name='input_pergunta5']:checked");
-        //definindo a proxima pagina
-        pagina5 = `
-            <div id="conteudo-pesquisa">
-                <div class="bloco-texto-pesquisa">
-                    <span class="titulo color-roxo"  style="margin-left: -5px;"><b id="nome_usuario_resultado"></b>, a obra que te representa é...</span><br><br>
-                    <b class="titulo-obra color-amarelo" id="nome_obra"></b><br>
-                    <span>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod ab, nam in nihil minima deserunt, doloribus animi voluptatum ea dolorum voluptates eveniet distinctio magnam incidunt perspiciatis nobis! Explicabo, provident adipisci? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima consequatur, animi eaque molestias numquam recusandae distinctio veniam, necessitatibus, eius a aliquam officiis reiciendis in possimus non quis. Qui, necessitatibus eum?
-                    </span>
-                    <button class="botao-questionario back-amarelo" onclick="reiniciar()">
-                        Reiniciar o teste
-                    </button>
-                </div>
-                <div class="img_pesquisa">
-                    <img src="img/obra1.jpg" alt="O Almoço dos Barqueiros – Renoir">
-                </div>
-           </div>
-            `
             
         // validando seu conteudo
         if (respostaPergunta5 == null) {
