@@ -186,3 +186,7 @@
     font-size: 25px;
     margin-top: 50px;
 }
+
+#texto_pesquisa {
+    text-indent: 20px;
+}
