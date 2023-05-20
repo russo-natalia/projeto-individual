@@ -86,6 +86,7 @@
     margin: auto;
     justify-content: center;
     text-align: center;
+    background-color: white;
 }
 #myChart2 {
     width: 100%;
@@ -94,10 +95,33 @@
 #graficos_tentativas_linha div {
     width: 80%;
     margin: auto;
-
+    
 }
 
 #ranking {
     background-color: #5d91d430;
+    padding: 30px;
+    height: fit-content;
 }
 
+.cards-kpis {
+    box-shadow: 1px 15px 27px 11px rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+    padding: 20px;
+    width: 20%;
+    height: 170px;
+    background-color: white;
+    text-align: center;
+    transition: 0.5s;
+}
+
+.cards-kpis h1 {
+    font-size: 25px;
+    font-weight: 600;
+    margin: 30px auto 30px auto;
+
+}
+
+.kpi-num {
+    font-size: 35px;
+}
