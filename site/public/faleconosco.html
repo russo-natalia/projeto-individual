@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="css/estilo-geral.css">
     <link rel="stylesheet" href="css/formulario.css">
     <title>Abstract | Fale Conosco</title>
+    <script src="./js/funcoes.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
 </head>
 
 <body>
@@ -33,9 +35,9 @@
             <h1 class="color-verde">Fale Conosco</h1>
             <span class="texto-campo color-verde">E-mail</span><br>
             <input type="email" class="campo" id="input_email_fale"> <br>
-            <span class="texto-campo color-verde" id="input_mensagem_fale">Mensagem</span><br>
-            <input type="text-area" class="campo"> <br> 
-            <button class="back-verde" onclick="fale()">
+            <span class="texto-campo color-verde" >Mensagem</span><br>
+            <input type="text-area" class="campo" id="input_mensagem_fale"> <br> 
+            <button class="back-verde" onclick="cadastrar()">
                 Enviar
             </button><br>
             <span class="alerta-form">Enviaremos a resposta ao e-mail indicado acima.</span>
@@ -78,24 +80,37 @@
 
 </html>
 <script>
-    function fale() {
-        //declaracao de variaveis 
-        var emailFaleVar = input_email_fale;
-        var mensagemFaleVar = input_mansagem_fale;
+     function cadastrar() {
+        // aguardar();
 
-        if (emailFaleVar == "" || mensagemFaleVar == "" ) {
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        var emailFaleVar = input_email_fale.value;
+        var mensagemFaleVar = input_mensagem_fale.value;
 
-            finalizarAguardar();
+
+        
+        console.log("Teste válido? " + mensagemFaleVar)  
+
+        if (emailFaleVar == "" || mensagemFaleVar == "") {
+            // cardErro.style.display = "block"
+            // mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            alert('Preencha todos os campos.')
+            // finalizarAguardar();
             return false;
+        } else if (emailFaleVar.indexOf('@') < 0 && emailFaleVar.indexOf('.') < 0) {
+            alert('Insira um e-mail válido.')
+            return false;
+        } else if (mensagemFaleVar.length > 250) {
+            alert('Insira uma mensagem com no máximo 250 caracteres.')
+            return false;
+        } else {
+            setInterval( 5000)
         }
-        else {
-            setInterval(sumirMensagem, 5000)
-        }
+        
 
         // Enviando o valor da nova input
-        fetch("/usuarios/cadastrar", {
+        fetch("/usuarios/cadastrarFale", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -111,28 +126,24 @@
             console.log("resposta: ", resposta);
 
             if (resposta.ok) {
-                cardErro.style.display = "block";
+                // cardErro.style.display = "block";
 
-                mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+                // mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
 
                 setTimeout(() => {
                     window.location = "faleconosco.html";
                 }, "2000")
 
-                limparFormulario();
-                finalizarAguardar();
-            } else {
-                throw ("Houve um erro ao tentar realizar o cadastro!");
-            }
-        }).catch(function (resposta) {
+            //     limparFormulario();
+            //     finalizarAguardar();
+            // } else {
+            //     throw ("Houve um erro ao tentar realizar o cadastro!");
+             }})
+        .catch(function (resposta) {
             console.log(`#ERRO: ${resposta}`);
-            finalizarAguardar();
+            // finalizarAguardar();
         });
 
         return false;
-    }
-
-    function sumirMensagem() {
-        cardErro.style.display = "none"
     }
 </script>
