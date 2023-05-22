@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="css/formulario.css">
     <link rel="stylesheet" href="css/questionario.css">
     <title>Abstract | Questionário</title>
+    <script src="./js/funcoes.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
 </head>
 <body>
     <!--Menu-->
@@ -93,9 +95,79 @@
     var obra3 = 0;
     var obra4 = 0;
     var obra5 = 0;
+    var obraFinal = '';
     // lista com todas as repostas do usuario
     var listaRepostas = [];
 
+    //ENVIANDO DADOS PARA O BANCO
+    function cadastrar() {
+        // aguardar();
+
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        var questao1Var = listaRepostas[0];
+        var questao2Var = listaRepostas[1];
+        var questao3Var = listaRepostas[2];
+        var questao4Var = listaRepostas[3];
+        var questao5Var = listaRepostas[4];
+        var resultadoVar = obraFinal;
+
+        if (questao1Var == "" || questao2Var == "" || questao3Var == "" || questao4Var == "" || questao5Var == "" || resultadoVar == "") {
+            // cardErro.style.display = "block"
+            // mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            alert('Preencha todos os campos.')
+            // finalizarAguardar();
+            return false;
+        } else {
+            setInterval( 5000)
+        }
+        
+
+        // Enviando o valor da nova input
+        fetch("/usuarios/cadastrarQuiz", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                questao1Server: questao1Var,
+                questao2Server: questao2Var,
+                questao3Server: questao3Var,
+                questao4Server: questao4Var,
+                questao5Server: questao5Var,
+                resultadoFinalServer: resultadoVar
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                // cardErro.style.display = "block";
+
+                // mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+                setTimeout(() => {
+                    // window.location = "faleconosco.html";
+                }, "2000")
+
+            //     limparFormulario();
+            //     finalizarAguardar();
+            // } else {
+            //     throw ("Houve um erro ao tentar realizar o cadastro!");
+             }})
+        .catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            // finalizarAguardar();
+        });
+
+        return false;
+    }
+
+
+
+    //CALCULANDO O FIM
     var alternativas1 = [ 
         `<div class="alternativas vivas">
              <input type="radio" id="coresVivas" class="hidden" name="input_pergunta2" value="coresVivas">
@@ -477,24 +549,30 @@
         if (obra1 > obra2 && obra1 > obra3 && obra1 > obra4 && obra1 > obra5) {
             localStorage.setItem("obra", "obra1");
             window.location.href = 'resposta.html';
+            obraFinal = 'obra1'
         } else if (obra2 > obra1 && obra2 > obra3 && obra2 > obra4 && obra2 > obra5) {
             localStorage.setItem("obra", "obra2");
             window.location.href = 'resposta.html';
+            obraFinal = 'obra2'
         } else if (obra3 > obra1 && obra3 > obra2 && obra3 > obra4 && obra3 > obra5) {
             localStorage.setItem("obra", "obra3");
             window.location.href = 'resposta.html';
+            obraFinal = 'obra3'
         } else if (obra4 > obra1 && obra4 > obra3 && obra4 > obra2 && obra4 > obra5) {
             localStorage.setItem("obra", "obra4");
             window.location.href = 'resposta.html';
+            obraFinal = 'obra4'
         } else if (obra5 > obra1 && obra5 > obra3 && obra5 > obra4 && obra5 > obra2) {
             localStorage.setItem("obra", "obra5");
             window.location.href = 'resposta.html';
+            obraFinal = 'obra5'
         }
+        cadastrar()
     }
 
 
-    //      ENVIANDO PARA O BANCO DE DADOS
 
+    
 
 
 </script>

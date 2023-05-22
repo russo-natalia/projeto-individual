@@ -38,7 +38,19 @@ function cadastrarFale(emailFale, mensagemFale) {
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucao = `
-        INSERT INTO faleconosco (emailContato, mensagem) VALUES ('${emailFale}', '${mensagemFale}');
+        INSERT INTO faleConosco (emailContato, mensagem) VALUES ('${emailFale}', '${mensagemFale}');
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
+function cadastrarQuiz(questao1, questao2, questao3, questao4, questao5, resultadoFinal) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", questao1, questao2, questao3, questao4, questao5, resultadoFinal);
+    
+    // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
+    //  e na ordem de inserção dos dados.
+    var instrucao = `
+        INSERT INTO respostas (fkUsuario, resultado, questao1, questao2, questao3, questao4, questao5) VALUES (1, '${resultadoFinal}', '${questao1}', '${questao2}', '${questao3}', '${questao4}', '${questao5}');
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
@@ -49,4 +61,5 @@ module.exports = {
     cadastrar,
     listar,
     cadastrarFale,
+    cadastrarQuiz
 };

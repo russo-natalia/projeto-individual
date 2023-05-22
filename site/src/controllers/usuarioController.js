@@ -128,10 +128,54 @@ function cadastrarFale(req, res) {
     }
 }
 
+function cadastrarQuiz(req, res) {
+    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    var questao1 = req.body.questao1Server;
+    var questao2 = req.body.questao2Server;
+    var questao3 = req.body.questao3Server;
+    var questao4 = req.body.questao4Server;
+    var questao5 = req.body.questao5Server;
+    var resultadoFinal = req.body.resultadoFinalServer;
+
+    // Faça as validações dos valores
+    if (questao1 == undefined) {
+        res.status(400).send("Sua Questão 1 está undefined!");
+    } else if (questao2 == undefined) {
+        res.status(400).send("Sua Questão 2 está undefined!");
+    } else if (questao3 == undefined) {
+        res.status(400).send("Sua Questão 3 está undefined!");
+    } else if (questao4 == undefined) {
+        res.status(400).send("Sua Questão 4 está undefined!");
+    } else if (questao5 == undefined) {
+        res.status(400).send("Sua Questão 5 está undefined!");
+    }  else if (resultadoFinal == undefined) {
+        res.status(400).send("Sua Resultado Final está undefined!");
+    } else {
+        
+        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+        usuarioModel.cadastrarQuiz(questao1, questao2, questao3, questao4, questao5, resultadoFinal)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
+
 module.exports = {
     entrar,
     cadastrar,
     listar,
     testar,
     cadastrarFale,
+    cadastrarQuiz,
 }
