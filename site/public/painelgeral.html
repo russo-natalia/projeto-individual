@@ -108,36 +108,32 @@
                         <div class="linha-graficos" id="linha-ranking-2">
                             <div id="grafico_resultados_pizza">
                                 <!-- grafico pizza -->
-                                <span class="subtitulo">Resultado das Tentativas</span>
+                                <span class="subtitulo">Relação de Resultados</span>
                                 <canvas id="myChart3"></canvas>
                             </div>
                             <div id="grafico_resultados_pizza">
                                 <!-- grafico pizza -->
-                                <span class="subtitulo">Resultado das Tentativas</span>
+                                <span class="subtitulo">Relação de Artistas</span>
                                 <canvas id="myChart4"></canvas>
                             </div>
                             <div id="grafico_resultados_pizza">
                                 <!-- grafico pizza -->
-                                <span class="subtitulo">Resultado das Tentativas</span>
+                                <span class="subtitulo">Hobbies dos Usuários</span>
                                 <canvas id="myChart5"></canvas>
                             </div>
                         </div>
                         <div class="linha-graficos" id="linha-ranking-2">
                             <div id="grafico_resultados_pizza">
                                 <!-- grafico pizza -->
-                                <span class="subtitulo">Resultado das Tentativas</span>
+                                <span class="subtitulo">Características dos Usuários</span>
                                 <canvas id="myChart6"></canvas>
                             </div>
-                            <div id="grafico_resultados_pizza">
+                            <div id="grafico_resultados_barra">
                                 <!-- grafico pizza -->
-                                <span class="subtitulo">Resultado das Tentativas</span>
+                                <span class="subtitulo">Meses x Resultados</span>
                                 <canvas id="myChart7"></canvas>
                             </div>
-                            <div id="grafico_resultados_pizza">
-                                <!-- grafico pizza -->
-                                <span class="subtitulo">Resultado das Tentativas</span>
-                                <canvas id="myChart8"></canvas>
-                            </div>
+
                         </div>
                 </div>
     </div>
@@ -348,17 +344,20 @@
     const ctx7 = document.getElementById('myChart7');
 
     new Chart(ctx7, {
-        type: 'pie',
+        type: 'line',
         data: {
             labels: [
-                'O Almoço dos Barqueiros',
-                'O Boulevard Montmartre'
+                'Janeiro',
+                'Fevereiro',
+                'Março',
+                'Abril',
+                'Fevereiro',
+                'Junho'
             ],
             datasets: [{
                 label: 'Resultados nas Tentativas',
-                data: [70, 30],
+                data: [10, 10, 11, 23, 5, 1],
                 backgroundColor: [
-                    '#5d91d4e3',
                     '#FFC531',
                 ],
                 hoverOffset: 4
@@ -366,26 +365,6 @@
         }
     });
 
-    const ctx8 = document.getElementById('myChart8');
-
-    new Chart(ctx8, {
-        type: 'pie',
-        data: {
-            labels: [
-                'O Almoço dos Barqueiros',
-                'O Boulevard Montmartre'
-            ],
-            datasets: [{
-                label: 'Resultados nas Tentativas',
-                data: [70, 30],
-                backgroundColor: [
-                    '#5d91d4e3',
-                    '#FFC531',
-                ],
-                hoverOffset: 4
-            }]
-        }
-    });
 
 
 </script>

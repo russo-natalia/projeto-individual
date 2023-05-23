@@ -73,6 +73,18 @@
     background-color: white;
 }
 
+#grafico_resultados_barra {
+    box-shadow: 1px 15px 27px 11px rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+    padding: 20px;
+    width: 60%;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: white;
+}
+
 #myChart {
     height: 200px;
 }
