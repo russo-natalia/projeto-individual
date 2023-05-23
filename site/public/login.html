@@ -61,7 +61,7 @@
                     <!-- <img src="./assets/circle-loading.gif" id="loading-gif"> -->
                 </div>
 
-                <div id="div_erros_login"></div>
+                <!-- <div id="div_erros_login"></div> -->
             </div>
         </div>
     </div>
@@ -109,13 +109,14 @@
         var senhaVar = senha_input.value;
 
         if (emailVar == "" || senhaVar == "") {
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
-            finalizarAguardar();
+            // cardErro.style.display = "block"
+            // mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            // finalizarAguardar();
+            alert('Preencha todos os campos.')
             return false;
         }
         else {
-            setInterval(sumirMensagem, 5000)
+            setInterval(5000)
         }
 
         console.log("FORM LOGIN: ", emailVar);
@@ -167,8 +168,8 @@
         return false;
     }
 
-    function sumirMensagem() {
-        cardErro.style.display = "none"
-    }
+    // function sumirMensagem() {
+    //     cardErro.style.display = "none"
+    // }
 
 </script>
