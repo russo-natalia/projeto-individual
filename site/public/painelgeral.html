@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,25 +12,26 @@
     <title>Abstract | Painel Geral</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+
 <body>
     <!--Menu-->
     <div class="header back-roxo">
         <div class="container">
-            <a href="index.html"><img class="logo" src="img/logo_abstract.png" alt=""></a>
+            <a href="painelgeral.html"><img class="logo" src="img/logo_abstract.png" alt=""></a>
             <ul class="navbar">
                 <li><a href="#">Gráficos</a></li>
                 <li><a href="pesquisa.html">Responder Questionário</a></li>
                 <li><a href="index.html">Sair</a></li>
             </ul>
         </div>
-    </div> 
+    </div>
     <!--Conteudo-->
     <div class="titulo color-roxo">
         <span>Painel de Gráficos</span>
         <span>Olá, <b id="nome_usuario">Fulana</b></span>
     </div>
     <div id="navbar_painel">
-        <a href="#resultados_usuario" class="link-painel back-amarelo" >Seus Resultados</a>
+        <a href="#resultados_usuario" class="link-painel back-amarelo">Seus Resultados</a>
         <a href="#ranking" class="link-painel back-amarelo">Ranking Geral</a>
         <a href="#impressionismo" class="link-painel back-amarelo">Impressionismo</a>
     </div>
@@ -41,20 +43,21 @@
 
         <div class="linha-graficos">
             <div id="lista_tentativas">
-                <span>Resultado mais frequente: <b id="obra_frequente_usuario" class="color-amarelo">O Almoço dos Barqueiros</b></span>
+                <span>Resultado mais frequente: <b id="obra_frequente_usuario" class="color-amarelo">O Almoço dos
+                        Barqueiros</b></span>
                 <div class="linha"></div>
                 <div class="linha-lista-tentativas" style="font-weight: bold;">
                     <span>Tentativas</span>
                     <span>Data</span>
                 </div>
                 <div id="tentativas_banco_dados">
-                <!-- puxar lista banco -->
+                    <!-- puxar lista banco -->
                 </div>
             </div>
             <div id="grafico_resultados_pizza">
                 <!-- grafico pizza -->
                 <span class="subtitulo">Resultado das Tentativas</span>
-                    <canvas id="myChart"></canvas>
+                <canvas id="myChart"></canvas>
             </div>
         </div>
         <div class="linha-graficos">
@@ -68,52 +71,83 @@
     </div>
 
     <div id="ranking">
+                        <div class="titulo color-roxo">
+                            <span>Ranking Geral</span>
+                        </div>
+                        <div class="linha-graficos">
+                            <div class="cards-kpis">
+                                <span>Resultado Mais <br> Recorrente</span>
+                                <h1 class="color-amarelo">
+                                    <!-- KPI -->
+                                    O Almoço dos Barqueiros
+                                </h1>
+                            </div>
+                            <div class="cards-kpis">
+                                <span>Artista Mais <br> Recorrente</span>
+                                <h1 class="color-amarelo">
+                                    <!-- KPI -->
+                                    Claude Monet
+                                </h1>
+                            </div>
+                            <div class="cards-kpis">
+                                <span>Idade Média <br> de Usuário</span>
+                                <h1 class="color-amarelo">
+                                    <!-- KPI -->
+                                    <span class="kpi-num">26</span>
+                                </h1>
+                            </div>
+                            <div class="cards-kpis">
+                                <span>Número Médio de Tentativas por Usuário</span>
+                                <h1>
+                                    <!-- KPI -->
+                                    <span class="kpi-num color-amarelo">4</span>
+                                </h1>
+                            </div>
+                        </div>
+
+                        <div class="linha-graficos" id="linha-ranking-2">
+                            <div id="grafico_resultados_pizza">
+                                <!-- grafico pizza -->
+                                <span class="subtitulo">Resultado das Tentativas</span>
+                                <canvas id="myChart3"></canvas>
+                            </div>
+                            <div id="grafico_resultados_pizza">
+                                <!-- grafico pizza -->
+                                <span class="subtitulo">Resultado das Tentativas</span>
+                                <canvas id="myChart4"></canvas>
+                            </div>
+                            <div id="grafico_resultados_pizza">
+                                <!-- grafico pizza -->
+                                <span class="subtitulo">Resultado das Tentativas</span>
+                                <canvas id="myChart5"></canvas>
+                            </div>
+                        </div>
+                        <div class="linha-graficos" id="linha-ranking-2">
+                            <div id="grafico_resultados_pizza">
+                                <!-- grafico pizza -->
+                                <span class="subtitulo">Resultado das Tentativas</span>
+                                <canvas id="myChart6"></canvas>
+                            </div>
+                            <div id="grafico_resultados_pizza">
+                                <!-- grafico pizza -->
+                                <span class="subtitulo">Resultado das Tentativas</span>
+                                <canvas id="myChart7"></canvas>
+                            </div>
+                            <div id="grafico_resultados_pizza">
+                                <!-- grafico pizza -->
+                                <span class="subtitulo">Resultado das Tentativas</span>
+                                <canvas id="myChart8"></canvas>
+                            </div>
+                        </div>
+                </div>
+    </div>
+    <div id="impressionismo">
         <div class="titulo color-roxo">
-            <span>Ranking Geral</span>
-        </div>
-        <div class="linha-graficos">
-            <div class="cards-kpis">
-                <span>Resultado Mais <br> Recorrente</span>
-                <h1 class="color-amarelo">
-                    <!-- KPI -->
-                    O Almoço dos Barqueiros
-                </h1>
-            </div>
-            <div class="cards-kpis">
-                <span>Artista Mais <br> Recorrente</span>
-                <h1 class="color-amarelo">
-                    <!-- KPI -->
-                    Claude Monet
-                </h1>
-            </div>
-            <div class="cards-kpis">
-                <span>Idade Média  <br> de Usuário</span>
-                <h1 class="color-amarelo">
-                    <!-- KPI -->
-                    <span class="kpi-num">26</span>
-                </h1>
-            </div>
-            <div class="cards-kpis">
-                <span>Número Médio de Tentativas por Usuário</span>
-                <h1>
-                    <!-- KPI -->
-                    <span class="kpi-num color-amarelo">4</span>
-                </h1>
-            </div>
-        </div>
-        <div class="linha-graficos">
-            <div id="grafico_resultados_pizza">
-                <!-- grafico pizza -->
-                <span class="subtitulo">Resultado das Tentativas</span>
-                    <canvas id="myChart3"></canvas>
-            </div>
-            <div id="grafico_resultados_pizza">
-                <!-- grafico pizza -->
-                <span class="subtitulo">Resultado das Tentativas</span>
-                    <canvas id="myChart4"></canvas>
-            </div>
+            <span>Movimento Impressionista</span>
         </div>
     </div>
+
+            
 
     <div id="rodape">
         <h1>Desenvolvido por Natália Russo</h1>
@@ -144,86 +178,214 @@
         </div>
     </div>
 </body>
+
 </html>
 <script>
     nome_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
     // PUXANDO RESULTADOS ILUSTRATIVOS PARA A LISTA DE TENTATIVAS DO USUARIO
     function puxarTentativasBD() {
-    var listaTentativasUsuario = [
-        'O Almoço dos Barqueiros',
-        'O Boulevard Montmartre, no fim da tarde',
-        'O Almoço dos Barqueiros'
-    ]
+        var listaTentativasUsuario = [
+            'O Almoço dos Barqueiros',
+            'O Boulevard Montmartre, no fim da tarde',
+            'O Almoço dos Barqueiros'
+        ]
 
-    var listaTentativasUsuarioData = [
-        '02/05/2023',
-        '02/05/2023',
-        '04/05/2023'
-    ]
+        var listaTentativasUsuarioData = [
+            '02/05/2023',
+            '02/05/2023',
+            '04/05/2023'
+        ]
 
-    for (var contador = 0; contador < 3; contador++) {
-       tentativas_banco_dados.innerHTML += `
+        for (var contador = 0; contador < 3; contador++) {
+            tentativas_banco_dados.innerHTML += `
        <div class="linha-lista-tentativas">
             <span>${listaTentativasUsuario[contador]}</span>
             <span>${listaTentativasUsuarioData[contador]}</span>
         </div>
-    ` 
-    }
-  
+    `
+        }
+
     }
     puxarTentativasBD()
-    
+
 
     //GRÁFICO DE TENTATIVAS USUARIO PIZZa
     const ctx = document.getElementById('myChart');
 
     new Chart(ctx, {
-            type: 'pie',
-            data: {
-                labels: [
-                    'O Almoço dos Barqueiros',
-                    'O Boulevard Montmartre'
-                ],
-                datasets: [{
-                    label: 'Resultados nas Tentativas',
-                    data: [70, 30],
-                    backgroundColor: [
+        type: 'pie',
+        data: {
+            labels: [
+                'O Almoço dos Barqueiros',
+                'O Boulevard Montmartre'
+            ],
+            datasets: [{
+                label: 'Resultados nas Tentativas',
+                data: [70, 30],
+                backgroundColor: [
                     '#5d91d4e3',
                     '#FFC531',
-                    ],
-                    hoverOffset: 4
-                }]}
-        });
+                ],
+                hoverOffset: 4
+            }]
+        }
+    });
 
-        //GRÁFICO DE TENTATIVAS USUARIO PIZZa
-        const ctx2 = document.getElementById('myChart2');
-       
-            new Chart(ctx2, {
-                type: 'bar',
-                data: {
-                labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
-                datasets: [{
-                    label: 'Tentativas x Meses',
-                    data: [1, 2, 0, 2, 1, 1],
-                    borderWidth: 1,
-                    backgroundColor: [
+    //GRÁFICO DE TENTATIVAS USUARIO PIZZa
+    const ctx2 = document.getElementById('myChart2');
+
+    new Chart(ctx2, {
+        type: 'bar',
+        data: {
+            labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
+            datasets: [{
+                label: 'Tentativas x Meses',
+                data: [1, 2, 0, 2, 1, 1],
+                borderWidth: 1,
+                backgroundColor: [
                     '#5d91d4e3',
                     '#5d91d4e3',
                     '#5d91d4e3',
                     '#5d91d4e3',
                     '#5d91d4e3',
                     '#5d91d4e3'
-                    ],
-                }]
-                },
-                options: {
-                scales: {
-                    y: {
+                ],
+            }]
+        },
+        options: {
+            scales: {
+                y: {
                     beginAtZero: true
-                    }
                 }
-                }
-            });
-    
+            }
+        }
+    });
+
+    const ctx3 = document.getElementById('myChart3');
+
+    new Chart(ctx3, {
+        type: 'pie',
+        data: {
+            labels: [
+                'O Almoço dos Barqueiros',
+                'O Boulevard Montmartre'
+            ],
+            datasets: [{
+                label: 'Resultados nas Tentativas',
+                data: [70, 30],
+                backgroundColor: [
+                    '#5d91d4e3',
+                    '#FFC531',
+                ],
+                hoverOffset: 4
+            }]
+        }
+    });
+
+    const ctx4 = document.getElementById('myChart4');
+
+    new Chart(ctx4, {
+        type: 'pie',
+        data: {
+            labels: [
+                'O Almoço dos Barqueiros',
+                'O Boulevard Montmartre'
+            ],
+            datasets: [{
+                label: 'Resultados nas Tentativas',
+                data: [70, 30],
+                backgroundColor: [
+                    '#5d91d4e3',
+                    '#FFC531',
+                ],
+                hoverOffset: 4
+            }]
+        }
+    });
+    const ctx5 = document.getElementById('myChart5');
+
+    new Chart(ctx5, {
+        type: 'pie',
+        data: {
+            labels: [
+                'O Almoço dos Barqueiros',
+                'O Boulevard Montmartre'
+            ],
+            datasets: [{
+                label: 'Resultados nas Tentativas',
+                data: [70, 30],
+                backgroundColor: [
+                    '#5d91d4e3',
+                    '#FFC531',
+                ],
+                hoverOffset: 4
+            }]
+        }
+    });
+
+    const ctx6 = document.getElementById('myChart6');
+
+    new Chart(ctx6, {
+        type: 'pie',
+        data: {
+            labels: [
+                'O Almoço dos Barqueiros',
+                'O Boulevard Montmartre'
+            ],
+            datasets: [{
+                label: 'Resultados nas Tentativas',
+                data: [70, 30],
+                backgroundColor: [
+                    '#5d91d4e3',
+                    '#FFC531',
+                ],
+                hoverOffset: 4
+            }]
+        }
+    });
+
+    const ctx7 = document.getElementById('myChart7');
+
+    new Chart(ctx7, {
+        type: 'pie',
+        data: {
+            labels: [
+                'O Almoço dos Barqueiros',
+                'O Boulevard Montmartre'
+            ],
+            datasets: [{
+                label: 'Resultados nas Tentativas',
+                data: [70, 30],
+                backgroundColor: [
+                    '#5d91d4e3',
+                    '#FFC531',
+                ],
+                hoverOffset: 4
+            }]
+        }
+    });
+
+    const ctx8 = document.getElementById('myChart8');
+
+    new Chart(ctx8, {
+        type: 'pie',
+        data: {
+            labels: [
+                'O Almoço dos Barqueiros',
+                'O Boulevard Montmartre'
+            ],
+            datasets: [{
+                label: 'Resultados nas Tentativas',
+                data: [70, 30],
+                backgroundColor: [
+                    '#5d91d4e3',
+                    '#FFC531',
+                ],
+                hoverOffset: 4
+            }]
+        }
+    });
+
+
 </script>

@@ -70,12 +70,20 @@
     height: 300px;
     display: flex;
     justify-content: center;
+    background-color: white;
 }
 
 #myChart {
     height: 200px;
 }
 
+#myChart2 {
+    width: 100%;
+}
+
+#myChart3 {
+    width: 300px
+}
 #graficos_tentativas_linha {
     box-shadow: 1px 15px 33px 11px rgba(0, 0, 0, 0.08);
     border-radius: 20px;
@@ -88,9 +96,7 @@
     text-align: center;
     background-color: white;
 }
-#myChart2 {
-    width: 100%;
-}
+
 
 #graficos_tentativas_linha div {
     width: 80%;
@@ -102,6 +108,17 @@
     background-color: #5d91d430;
     padding: 30px;
     height: fit-content;
+}
+
+#impressionismo {
+    background-color: #5d91d4b4;
+    padding: 30px;
+    height: fit-content;
+}
+
+#impressionismo .titulo {
+    color: white;
+
 }
 
 .cards-kpis {
@@ -124,4 +141,12 @@
 
 .kpi-num {
     font-size: 35px;
+}
+
+#linha-ranking-2 #grafico_resultados_pizza {
+    width: 27%;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
 }
