@@ -136,6 +136,7 @@ function cadastrarQuiz(req, res) {
     var questao4 = req.body.questao4Server;
     var questao5 = req.body.questao5Server;
     var resultadoFinal = req.body.resultadoFinalServer;
+    var fkUsuario = req.body.fkUsuarioServer;
 
     // Faça as validações dos valores
     if (questao1 == undefined) {
@@ -150,10 +151,12 @@ function cadastrarQuiz(req, res) {
         res.status(400).send("Sua Questão 5 está undefined!");
     }  else if (resultadoFinal == undefined) {
         res.status(400).send("Sua Resultado Final está undefined!");
+    }  else if (fkUsuario == undefined) {
+        res.status(400).send("Sua Usuario está undefined!");
     } else {
         
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrarQuiz(questao1, questao2, questao3, questao4, questao5, resultadoFinal)
+        usuarioModel.cadastrarQuiz(fkUsuario, questao1, questao2, questao3, questao4, questao5, resultadoFinal)
             .then(
                 function (resultado) {
                     res.json(resultado);

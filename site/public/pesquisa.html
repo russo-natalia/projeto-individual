@@ -112,8 +112,9 @@
         var questao4Var = listaRepostas[3];
         var questao5Var = listaRepostas[4];
         var resultadoVar = obraFinal;
+        var fkUsuarioVar = idUsuario;
 
-        if (questao1Var == "" || questao2Var == "" || questao3Var == "" || questao4Var == "" || questao5Var == "" || resultadoVar == "") {
+        if (questao1Var == "" || questao2Var == "" || questao3Var == "" || questao4Var == "" || questao5Var == "" || resultadoVar == ""  || fkUsuarioVar == "") {
             // cardErro.style.display = "block"
             // mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
             alert('Preencha todos os campos.')
@@ -138,7 +139,8 @@
                 questao3Server: questao3Var,
                 questao4Server: questao4Var,
                 questao5Server: questao5Var,
-                resultadoFinalServer: resultadoVar
+                resultadoFinalServer: resultadoVar,
+                fkUsuarioServer: fkUsuarioVar
             })
         }).then(function (resposta) {
 
