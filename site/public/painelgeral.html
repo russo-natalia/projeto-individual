@@ -71,79 +71,105 @@
     </div>
 
     <div id="ranking">
-                        <div class="titulo color-roxo">
-                            <span>Ranking Geral</span>
-                        </div>
-                        <div class="linha-graficos">
-                            <div class="cards-kpis">
-                                <span>Resultado Mais <br> Recorrente</span>
-                                <h1 class="color-amarelo">
-                                    <!-- KPI -->
-                                    O Almoço dos Barqueiros
-                                </h1>
-                            </div>
-                            <div class="cards-kpis">
-                                <span>Artista Mais <br> Recorrente</span>
-                                <h1 class="color-amarelo">
-                                    <!-- KPI -->
-                                    Claude Monet
-                                </h1>
-                            </div>
-                            <div class="cards-kpis">
-                                <span>Idade Média <br> de Usuário</span>
-                                <h1 class="color-amarelo">
-                                    <!-- KPI -->
-                                    <span class="kpi-num">26</span>
-                                </h1>
-                            </div>
-                            <div class="cards-kpis">
-                                <span>Número Médio de Tentativas por Usuário</span>
-                                <h1>
-                                    <!-- KPI -->
-                                    <span class="kpi-num color-amarelo">4</span>
-                                </h1>
-                            </div>
-                        </div>
+        <div class="titulo color-roxo">
+            <span>Ranking Geral</span>
+        </div>
+        <div class="linha-graficos">
+            <div class="cards-kpis">
+                <span>Resultado Mais <br> Recorrente</span>
+                <h1 class="color-amarelo">
+                    <!-- KPI -->
+                    O Almoço dos Barqueiros
+                </h1>
+            </div>
+            <div class="cards-kpis">
+                <span>Artista Mais <br> Recorrente</span>
+                <h1 class="color-amarelo">
+                    <!-- KPI -->
+                    Claude Monet
+                </h1>
+            </div>
+            <div class="cards-kpis">
+                <span>Idade Média <br> de Usuário</span>
+                <h1 class="color-amarelo">
+                    <!-- KPI -->
+                    <span class="kpi-num">26</span>
+                </h1>
+            </div>
+            <div class="cards-kpis">
+                <span>Número Médio de Tentativas por Usuário</span>
+                <h1>
+                    <!-- KPI -->
+                    <span class="kpi-num color-amarelo">4</span>
+                </h1>
+            </div>
+        </div>
 
-                        <div class="linha-graficos" id="linha-ranking-2">
-                            <div id="grafico_resultados_pizza">
-                                <!-- grafico pizza -->
-                                <span class="subtitulo">Relação de Resultados</span>
-                                <canvas id="myChart3"></canvas>
-                            </div>
-                            <div id="grafico_resultados_pizza">
-                                <!-- grafico pizza -->
-                                <span class="subtitulo">Relação de Artistas</span>
-                                <canvas id="myChart4"></canvas>
-                            </div>
-                            <div id="grafico_resultados_pizza">
-                                <!-- grafico pizza -->
-                                <span class="subtitulo">Hobbies dos Usuários</span>
-                                <canvas id="myChart5"></canvas>
-                            </div>
-                        </div>
-                        <div class="linha-graficos" id="linha-ranking-2">
-                            <div id="grafico_resultados_pizza">
-                                <!-- grafico pizza -->
-                                <span class="subtitulo">Características dos Usuários</span>
-                                <canvas id="myChart6"></canvas>
-                            </div>
-                            <div id="grafico_resultados_barra">
-                                <!-- grafico pizza -->
-                                <span class="subtitulo">Meses x Resultados</span>
-                                <canvas id="myChart7"></canvas>
-                            </div>
+        <div class="linha-graficos" id="linha-ranking-2">
+            <div id="grafico_resultados_pizza">
+                <!-- grafico pizza -->
+                <span class="subtitulo">Relação de Resultados</span>
+                <canvas id="myChart3"></canvas>
+            </div>
+            <div id="grafico_resultados_pizza">
+                <!-- grafico pizza -->
+                <span class="subtitulo">Relação de Artistas</span>
+                <canvas id="myChart4"></canvas>
+            </div>
+            <div id="grafico_resultados_pizza">
+                <!-- grafico pizza -->
+                <span class="subtitulo">Hobbies dos Usuários</span>
+                <canvas id="myChart5"></canvas>
+            </div>
+        </div>
+        <div class="linha-graficos" id="linha-ranking-2">
+            <div id="grafico_resultados_pizza">
+                <!-- grafico pizza -->
+                <span class="subtitulo">Características dos Usuários</span>
+                <canvas id="myChart6"></canvas>
+            </div>
+            <div id="grafico_resultados_barra">
+                <!-- grafico pizza -->
+                <span class="subtitulo">Meses x Resultados</span>
+                <canvas id="myChart7"></canvas>
+            </div>
 
-                        </div>
-                </div>
+        </div>
+    </div>
     </div>
     <div id="impressionismo">
         <div class="titulo color-roxo">
             <span>Movimento Impressionista</span>
         </div>
+        <div class="bloco-graficos">
+            <div class="coluna-graficos">
+                <div class="cards-kpis-impressionismo">
+                    <span>Artista Com Maior <br> Acervo</span>
+                    <h1 class="color-amarelo">
+                        <!-- KPI -->
+                        Claude Monet
+                    </h1>
+                </div>
+                <div class="cards-kpis-impressionismo">
+                    <span>Total de Obras <br> Produzidas</span>
+                    <h1 class="color-amarelo">
+                        <!-- KPI -->
+                        1.323
+                    </h1>
+                </div>
+            </div>
+            <div class="coluna-graficos">
+                <div id="grafico_resultados_barra">
+                    <span class="subtitulo">Artistas x Quantidade de Obras</span>
+                    <canvas id="myChart8"></canvas>
+                </div>
+            </div>
+        </div>
+
+    </div>
     </div>
 
-            
+
 
     <div id="rodape">
         <h1>Desenvolvido por Natália Russo</h1>
@@ -357,6 +383,28 @@
             datasets: [{
                 label: 'Resultados nas Tentativas',
                 data: [10, 10, 11, 23, 5, 1],
+                backgroundColor: [
+                    '#FFC531',
+                ],
+                hoverOffset: 4
+            }]
+        }
+    });
+
+    const ctx8 = document.getElementById('myChart8');
+
+    new Chart(ctx8, {
+        type: 'bar',
+        data: {
+            labels: [
+                'Claude Monet',
+                'Pierre-August Renoir',
+                'Camile Pissaro',
+                'Edgar Degas'
+            ],
+            datasets: [{
+                label: 'Resultados nas Tentativas',
+                data: [1000, 700, 400, 230],
                 backgroundColor: [
                     '#FFC531',
                 ],
