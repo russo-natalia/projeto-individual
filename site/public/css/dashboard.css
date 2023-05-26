@@ -5,6 +5,19 @@
     margin: auto;
 }
 
+.header {
+    position: fixed;
+    top: 0;
+}
+
+/* .navbar dropdownBttn:hover dropdownUl, .navbar dropdownBttn.over dropdownUl{display:block;}
+
+.navbar dropdownBttn dropdownUl li{
+    border:1px solid #c0c0c0;
+    display:block;
+    width:150px;
+    } */
+
 .link-painel {
     width: 20%;
     height: 50px;

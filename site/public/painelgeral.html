@@ -19,19 +19,26 @@
         <div class="container">
             <a href="painelgeral.html"><img class="logo" src="img/logo_abstract.png" alt=""></a>
             <ul class="navbar">
-                <li><a href="#">Gráficos</a></li>
+                <li class="dropdownBttn"><a href="#">Gráficos</a>
+                    <!-- <ul id="dropdownUl">
+                        <li> <a href="#navbar_painel">Seus Resultados</a></li>
+                        <li><a href="#ranking">Ranking Geral</a></li>
+                        <li><a href="#impressionismo">Impressionismo</a></li>
+                    </ul> -->
+                </li>
                 <li><a href="pesquisa.html">Responder Questionário</a></li>
                 <li><a href="index.html">Sair</a></li>
             </ul>
         </div>
     </div>
+    <div class="divEspacoHeader"></div>
     <!--Conteudo-->
-    <div class="titulo color-roxo">
+    <div id="painelGeral" class="titulo color-roxo">
         <span>Painel de Gráficos</span>
         <span>Olá, <b id="nome_usuario">Fulana</b></span>
     </div>
     <div id="navbar_painel">
-        <a href="#resultados_usuario" class="link-painel back-amarelo">Seus Resultados</a>
+        <a href="#navbar_painel" class="link-painel back-amarelo">Seus Resultados</a>
         <a href="#ranking" class="link-painel back-amarelo">Ranking Geral</a>
         <a href="#impressionismo" class="link-painel back-amarelo">Impressionismo</a>
     </div>

@@ -71,6 +71,11 @@ body {
     color: #ffffff;
 }
 
+.divEspacoHeader {
+    height: 80px;
+}
+
+
 
 .header {
     width: 100%;
