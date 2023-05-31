@@ -112,9 +112,10 @@
         var questao4Var = listaRepostas[3];
         var questao5Var = listaRepostas[4];
         var resultadoVar = obraFinal;
+        var artistaVar = artista;
         var fkUsuarioVar = idUsuario;
 
-        if (questao1Var == "" || questao2Var == "" || questao3Var == "" || questao4Var == "" || questao5Var == "" || resultadoVar == ""  || fkUsuarioVar == "") {
+        if (questao1Var == "" || questao2Var == "" || questao3Var == "" || questao4Var == "" || questao5Var == "" || resultadoVar == ""  || fkUsuarioVar == ""|| artistaVar == "") {
             // cardErro.style.display = "block"
             // mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
             alert('Preencha todos os campos.')
@@ -140,6 +141,7 @@
                 questao4Server: questao4Var,
                 questao5Server: questao5Var,
                 resultadoFinalServer: resultadoVar,
+                artistaServer: artistaVar,
                 fkUsuarioServer: fkUsuarioVar
             })
         }).then(function (resposta) {
@@ -232,11 +234,11 @@
             obra4 += 1;
             obra5 += 1;
             // adicionando na lista de repostas
-            listaRepostas.push('urbano');
+            listaRepostas.push('Urbano');
             
             // trocando o html da página
             div_questionario.innerHTML = pagina2;
-        } else if (respostaPergunta1.value == 'natureza') {
+        } else if (respostaPergunta1.value == 'Natureza') {
             obra3 += 1;
             obra2 += 1;
             listaRepostas.push('natureza');
@@ -314,19 +316,19 @@
             obra2 += 1;
             obra3 += 1;
             // adicionando na lista de repostas
-            listaRepostas.push('coresVivas');
+            listaRepostas.push('Cores Vivas');
             
             // trocando o html da página
             div_questionario.innerHTML = pagina3;
         } else if (respostaPergunta2.value == 'coresPasteis') {
             obra1 += 1;
-            listaRepostas.push('coresPasteis');
+            listaRepostas.push('Cores Pasteis');
             // trocando o html da página
             div_questionario.innerHTML = pagina3;
         } else if (respostaPergunta2.value == 'coresNeutras') {
             obra4 += 1;
             obra5 += 1;
-            listaRepostas.push('coresNeutras');
+            listaRepostas.push('Cores Neutras');
             // trocando o html da página
             div_questionario.innerHTML = pagina3;
         }
@@ -398,28 +400,28 @@
             // somando às var obras
             obra2 += 2;
             // adicionando na lista de repostas
-            listaRepostas.push('sentimental');
+            listaRepostas.push('Sentimental');
             
             // trocando o html da página
             div_questionario.innerHTML = pagina4;
         } else if (respostaPergunta3.value == 'inteligente') {
             obra3 += 2;
-            listaRepostas.push('inteligente');
+            listaRepostas.push('Inteligente');
             // trocando o html da página
             div_questionario.innerHTML = pagina4;
         } else if (respostaPergunta3.value == 'comunicativo') {
             obra1 += 2;
-            listaRepostas.push('comunicativo');
+            listaRepostas.push('Comunicativo');
             // trocando o html da página
             div_questionario.innerHTML = pagina4;
         } else if (respostaPergunta3.value == 'disciplinado') {
             obra5 += 2;
-            listaRepostas.push('disciplinado');
+            listaRepostas.push('Disciplinado');
             // trocando o html da página
             div_questionario.innerHTML = pagina4;
         } else if (respostaPergunta3.value == 'descontraido') {
             obra4 += 2;
-            listaRepostas.push('descontraido');
+            listaRepostas.push('Descontraido');
             // trocando o html da página
             div_questionario.innerHTML = pagina4;
         }
@@ -487,28 +489,28 @@
             // somando às var obras
             obra3 += 3;
             // adicionando na lista de repostas
-            listaRepostas.push('ler');
+            listaRepostas.push('Ler');
             
             // trocando o html da página
             div_questionario.innerHTML = pagina5;
         } else if (respostaPergunta4.value == 'passear') {
             obra2 += 3;
-            listaRepostas.push('passear');
+            listaRepostas.push('Passear');
             // trocando o html da página
             div_questionario.innerHTML = pagina5;
         } else if (respostaPergunta4.value == 'jantar') {
             obra4 += 3;
-            listaRepostas.push('jantar');
+            listaRepostas.push('Jantar Fora');
             // trocando o html da página
             div_questionario.innerHTML = pagina5;
         } else if (respostaPergunta4.value == 'fisica') {
             obra5 += 3;
-            listaRepostas.push('fisica');
+            listaRepostas.push('Atividade Física');
             // trocando o html da página
             div_questionario.innerHTML = pagina5;
         } else if (respostaPergunta4.value == 'amigos') {
             obra1 += 3;
-            listaRepostas.push('amigos');
+            listaRepostas.push('Encontrar os Amigos');
             // trocando o html da página
             div_questionario.innerHTML = pagina5;
         }
@@ -526,22 +528,22 @@
             obra1 += 1;
             obra2 += 1;
             // adicionando na lista de repostas
-            listaRepostas.push('verao');
+            listaRepostas.push('Verão');
             // calculando o resultado final
             resultadoFinal()
         } else if (respostaPergunta5.value == 'inverno') {
             obra5 += 1;
-            listaRepostas.push('inverno');
+            listaRepostas.push('Inverno');
             // calculando o resultado final
             resultadoFinal()
         } else if (respostaPergunta5.value == 'outono') {
             obra4 += 1;
-            listaRepostas.push('outono');
+            listaRepostas.push('Outono');
             // calculando o resultado final
             resultadoFinal()
         } else if (respostaPergunta5.value == 'primavera') {
             obra3 += 1;
-            listaRepostas.push('primavera');
+            listaRepostas.push('Primavera');
             // calculando o resultado final
             resultadoFinal()
         } 
@@ -551,23 +553,28 @@
         if (obra1 > obra2 && obra1 > obra3 && obra1 > obra4 && obra1 > obra5) {
             localStorage.setItem("obra", "obra1");
             window.location.href = 'resposta.html';
-            obraFinal = 'obra1'
+            obraFinal = 'O Almoço dos Barqueiros'
+            artista = 'Pierre-Auguste Renoir'
         } else if (obra2 > obra1 && obra2 > obra3 && obra2 > obra4 && obra2 > obra5) {
             localStorage.setItem("obra", "obra2");
             window.location.href = 'resposta.html';
-            obraFinal = 'obra2'
+            obraFinal = 'O Jardim em Sainte-Adresse'
+            artista = 'Claude Monet'
         } else if (obra3 > obra1 && obra3 > obra2 && obra3 > obra4 && obra3 > obra5) {
             localStorage.setItem("obra", "obra3");
             window.location.href = 'resposta.html';
-            obraFinal = 'obra3'
+            obraFinal = 'Adolphe Monet Reading in a Garden'
+            artista = 'Claude Monet'
         } else if (obra4 > obra1 && obra4 > obra3 && obra4 > obra2 && obra4 > obra5) {
             localStorage.setItem("obra", "obra4");
             window.location.href = 'resposta.html';
-            obraFinal = 'obra4'
+            obraFinal = 'O Boulevard Montmartre, no fim da tarde'
+            artista = 'Camille Pissarro'
         } else if (obra5 > obra1 && obra5 > obra3 && obra5 > obra4 && obra5 > obra2) {
             localStorage.setItem("obra", "obra5");
             window.location.href = 'resposta.html';
-            obraFinal = 'obra5'
+            obraFinal = 'A Aula de Dança'
+            artista = 'Edgar Degas'
         }
         cadastrar()
     }
