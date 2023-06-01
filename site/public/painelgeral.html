@@ -467,7 +467,13 @@ let dados = {
         label: 'Resposta',
         data: [],
         fill: false,
-        borderColor: 'rgb(75, 192, 192)',
+        backgroundColor: [
+            '#FFC531',
+            'rgba(255, 197, 49, 0.80)',
+            'rgba(255, 197, 49, 0.60)',
+            'rgba(255, 197, 49, 0.40)',
+            'rgba(255, 197, 49, 0.20)'
+        ],
         tension: 0.1
     },
     {
@@ -536,14 +542,14 @@ function atualizarGrafico(idResposta, dados, myChart) {
                         // avisoCaptura.innerHTML = ""
 
 
-                        if (novoRegistro[0].momento_grafico == dados.labels[dados.labels.length - 1]) {
+                        if (novoRegistro[0].momento_grafico == dados.labels[dados.labels.length]) {
                             console.log("---------------------------------------------------------------")
                             console.log("Como não há dados novos para captura, o gráfico não atualizará.")
                             // avisoCaptura.innerHTML = "<i class='fa-solid fa-triangle-exclamation'></i> Foi trazido o dado mais atual capturado pelo sensor. <br> Como não há dados novos a exibir, o gráfico não atualizará."
                             console.log("Horário do novo dado capturado:")
                             console.log(novoRegistro[0].resultado)
                             console.log("Horário do último dado capturado:")
-                            console.log(dados.labels[dados.labels.length - 1])
+                            console.log(dados.labels[dados.labels.length])
                             console.log("---------------------------------------------------------------")
                         } else {
                             // tirando e colocando valores no gráfico
