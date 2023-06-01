@@ -44,6 +44,18 @@ function cadastrarFale(emailFale, mensagemFale) {
     return database.executar(instrucao);
 }
 
+function cadastrarAvaliacao(notaAvaliacao, idUsuarioAvaliacao) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", notaAvaliacao, idUsuarioAvaliacao);
+    
+    // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
+    //  e na ordem de inserção dos dados.
+    var instrucao = `
+        INSERT INTO avaliacao (nota, fkUsuario) VALUES ('${notaAvaliacao}', '${idUsuarioAvaliacao}');
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
 function cadastrarQuiz(fkUsuario, questao1, questao2, questao3, questao4, questao5, resultadoFinal, artista) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", fkUsuario, questao1, questao2, questao3, questao4, questao5, resultadoFinal);
     
@@ -61,5 +73,6 @@ module.exports = {
     cadastrar,
     listar,
     cadastrarFale,
-    cadastrarQuiz
+    cadastrarQuiz,
+    cadastrarAvaliacao,
 };

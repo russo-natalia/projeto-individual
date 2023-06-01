@@ -35,7 +35,7 @@
                 <option value="4">4</option>
                 <option value="5">5</option>
             </select><br><br>
-            <button class="back-roxo">Enviar Avaliação</button>
+            <button class="back-roxo" onclick="cadastrar()">Enviar Avaliação</button>
         </div>
     </div>
 
@@ -72,3 +72,65 @@
     
 </body>
 </html>
+
+<script>
+     function cadastrar() {
+        // aguardar();
+
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        var notaVar = select_avaliacao.value;
+       var idUsuarioAvaliacaoVar = sessionStorage.ID_USUARIO;
+
+ 
+
+        if (notaVar == "" || idUsuarioAvaliacaoVar == "" ) {
+            // cardErro.style.display = "block"
+            // mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            alert('Preencha todos os campos.')
+            // finalizarAguardar();
+            return false;
+        } else {
+            setInterval( 5000)
+        }
+        
+
+        // Enviando o valor da nova input
+        fetch("/usuarios/cadastrarAvaliacao", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                notaServer: notaVar,
+                idUsuarioAvaliacaoServer: idUsuarioAvaliacaoVar
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                // cardErro.style.display = "block";
+                alert('Mensagem enviada com sucesso.')
+
+                // mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+                setTimeout(() => {
+                    window.location = "avaliacao.html";
+                }, "500")
+
+            //     limparFormulario();
+            //     finalizarAguardar();
+            // } else {
+            //     throw ("Houve um erro ao tentar realizar o cadastro!");
+             }})
+        .catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            // finalizarAguardar();
+        });
+
+        return false;
+    }
+</script>

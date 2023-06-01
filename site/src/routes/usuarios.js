@@ -20,6 +20,10 @@ router.post("/cadastrarFale", function (req, res) {
     usuarioController.cadastrarFale(req, res);
 })
 
+router.post("/cadastrarAvaliacao", function (req, res) {
+    usuarioController.cadastrarAvaliacao(req, res);
+})
+
 router.post("/cadastrarQuiz", function (req, res) {
     usuarioController.cadastrarQuiz(req, res);
 })

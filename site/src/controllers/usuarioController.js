@@ -128,6 +128,38 @@ function cadastrarFale(req, res) {
     }
 }
 
+function cadastrarAvaliacao(req, res) {
+    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    var notaAvaliacao = req.body.notaServer;
+    var idUsuarioAvaliacao = req.body.idUsuarioAvaliacaoServer;
+
+    // Faça as validações dos valores
+    if (notaAvaliacao == undefined) {
+        res.status(400).send("Seu avaliacao está undefined!");
+    } else if (idUsuarioAvaliacao == undefined) {
+        res.status(400).send("Seu usuario está undefined!");
+    } else {
+        
+        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+        usuarioModel.cadastrarAvaliacao(notaAvaliacao, idUsuarioAvaliacao)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
+
+
 function cadastrarQuiz(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var questao1 = req.body.questao1Server;
@@ -184,4 +216,5 @@ module.exports = {
     testar,
     cadastrarFale,
     cadastrarQuiz,
+    cadastrarAvaliacao,
 }

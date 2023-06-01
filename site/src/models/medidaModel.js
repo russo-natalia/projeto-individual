@@ -1,6 +1,6 @@
 var database = require("../database/config");
 
-function buscarUltimasMedidas(idResposta, limite_linhas) {
+function buscarUltimasMedidas(idUsuario, limite_linhas) {
 
     instrucaoSql = ''
 
@@ -17,7 +17,7 @@ function buscarUltimasMedidas(idResposta, limite_linhas) {
     return database.executar(instrucaoSql);
 }
 
-function buscarMedidasEmTempoReal(idResposta) {
+function buscarMedidasEmTempoReal(idUsuario) {
 
     instrucaoSql = ''
 
