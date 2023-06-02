@@ -551,9 +551,9 @@ function atualizarGrafico2(idUsuario2, dados2, myChart2) {
 
 fetch(`/medidas/tempo-real/${idUsuario2}`, { cache: 'no-store' }).then(function (response) {
     if (response.ok) {
-        response.json().then(function (novoRegistro) {
+        response.json().then(function (novoRegistro2) {
 
-            console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
+            console.log(`Dados recebidos: ${JSON.stringify(novoRegistro2)}`);
             console.log(`Dados atuais do gráfico:`);
             console.log(dados2);
 
@@ -561,22 +561,22 @@ fetch(`/medidas/tempo-real/${idUsuario2}`, { cache: 'no-store' }).then(function 
             // avisoCaptura.innerHTML = ""
 
 
-            if (novoRegistro[0].momento_grafico == dados2.labels[dados2.labels.length]) {
+            if (novoRegistro2[0].momento_grafico == dados2.labels[dados2.labels.length]) {
                 console.log("---------------------------------------------------------------")
                 console.log("Como não há dados novos para captura, o gráfico não atualizará.")
                 // avisoCaptura.innerHTML = "<i class='fa-solid fa-triangle-exclamation'></i> Foi trazido o dado mais atual capturado pelo sensor. <br> Como não há dados novos a exibir, o gráfico não atualizará."
                 console.log("Horário do novo dado capturado:")
-                console.log(novoRegistro[0].mes)
+                console.log(novoRegistro2[0].mes)
                 console.log("Horário do último dado capturado:")
                 console.log(dados2.labels[dados2.labels.length])
                 console.log("---------------------------------------------------------------")
             } else {
                 // tirando e colocando valores no gráfico
                 dados2.labels.shift(); // apagar o primeiro
-                dados2.labels.push(novoRegistro[0].mes); // incluir um novo momento
+                dados2.labels.push(novoRegistro2[0].mes); // incluir um novo momento
 
                 dados2.datasets[0].data.shift();  // apagar o primeiro de umidade
-                dados2.datasets[0].data.push(novoRegistro[0].tentativas); // incluir uma nova medida de umidade
+                dados2.datasets[0].data.push(novoRegistro2[0].tentativas); // incluir uma nova medida de umidade
 
 
                 myChart2.update();
