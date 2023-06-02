@@ -180,3 +180,10 @@ body {
     border-radius: 10px;
     color: white;
 }
+
+#select_avaliacao {
+    padding: 10px 60px;
+    border-radius: 10px;
+    background-color: #d9d9d94d;
+    border-color: #5d91d4e3;
+}
