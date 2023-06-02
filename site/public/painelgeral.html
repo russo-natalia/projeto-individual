@@ -72,7 +72,7 @@
             <div id="graficos_tentativas_linha">
                 <div>
                     <span class="subtitulo">Tentativas x Meses</span>
-                    <canvas id="myChart2"></canvas>
+                    <canvas id="myChartsegundo"></canvas>
                 </div>
             </div>
         </div>
@@ -463,7 +463,7 @@ fetch(`/medidas/tempo-real/${idUsuario}`, { cache: 'no-store' }).then(function (
 //     clearTimeout(proximaAtualizacao);
 // // }
 
-fetch(`/medidas/ultimas/${idUsuario2}`, { cache: 'no-store' }).then(function (response) {
+fetch(`/medidas/ultimas2/${idUsuario2}`, { cache: 'no-store' }).then(function (response) {
     if (response.ok) {
         response.json().then(function (resposta) {
             console.log(`Dados recebidos: GRaIFCO 2 ${JSON.stringify(resposta)}`);
@@ -494,7 +494,7 @@ let labels = [];
 let dados2 = {
 labels: labels,
 datasets: [{
-label: 'Resposta',
+label: 'Número de Tentativas',
 data: [],
 fill: false,
 backgroundColor: [
@@ -531,7 +531,7 @@ data: dados2,
 
 // Adicionando gráfico criado em div na tela
 let myChart2 = new Chart(
-document.getElementById('myChart2'),
+document.getElementById('myChartsegundo'),
 config
 );
 
@@ -549,9 +549,9 @@ function atualizarGrafico2(idUsuario2, dados2, myChart2) {
 
 
 
-fetch(`/medidas/tempo-real/${idUsuario2}`, { cache: 'no-store' }).then(function (response) {
+fetch(`/medidas/tempo-real2/${idUsuario2}`, { cache: 'no-store' }).then(function (response) {
     if (response.ok) {
-        response.json().then(function (novoRegistro2) {
+        response.json().then(function (novoRegistro) {
 
             console.log(`Dados recebidos: ${JSON.stringify(novoRegistro2)}`);
             console.log(`Dados atuais do gráfico:`);
@@ -566,7 +566,7 @@ fetch(`/medidas/tempo-real/${idUsuario2}`, { cache: 'no-store' }).then(function 
                 console.log("Como não há dados novos para captura, o gráfico não atualizará.")
                 // avisoCaptura.innerHTML = "<i class='fa-solid fa-triangle-exclamation'></i> Foi trazido o dado mais atual capturado pelo sensor. <br> Como não há dados novos a exibir, o gráfico não atualizará."
                 console.log("Horário do novo dado capturado:")
-                console.log(novoRegistro2[0].mes)
+                console.log(novoRegistro2[0].tentativas)
                 console.log("Horário do último dado capturado:")
                 console.log(dados2.labels[dados2.labels.length])
                 console.log("---------------------------------------------------------------")
