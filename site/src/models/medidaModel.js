@@ -109,11 +109,50 @@ function buscarMedidasEmTempoReal3(idUsuario3) {
     return database.executar(instrucaoSql3);
 }
 
+// ----------Quarto Gráfico------------------------------------------------------------------------------------------------------------------------
+function buscarUltimasMedidas4(idUsuario4, limite_linhas) {
+
+    instrucaoSql4 = ''
+
+    if (process.env.AMBIENTE_PROCESSO == "producao") {
+        instrucaoSql4 = `select artista, count(resultado) as num from respostas group by artista;`;
+    } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
+        instrucaoSql4 = `select artista, count(resultado) as num from respostas group by artista;`;
+    } else {
+        console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
+        return
+    }
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql4);
+    return database.executar(instrucaoSql4);
+}
+
+function buscarMedidasEmTempoReal4(idUsuario4) {
+
+    instrucaoSql4 = ''
+
+    if (process.env.AMBIENTE_PROCESSO == "producao") {
+        instrucaoSql4 = `select artista, count(resultado) as num from respostas group by artista;`;
+
+    } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
+        instrucaoSql4 = `select artista, count(resultado) as num from respostas group by artista;`;
+    } else {
+        console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
+        return
+    }
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql4);
+    return database.executar(instrucaoSql4);
+}
+
+
 module.exports = {
     buscarUltimasMedidas,
     buscarMedidasEmTempoReal,
     buscarUltimasMedidas2,
     buscarMedidasEmTempoReal2,
     buscarUltimasMedidas3,
-    buscarMedidasEmTempoReal3
+    buscarMedidasEmTempoReal3,
+    buscarUltimasMedidas4,
+    buscarMedidasEmTempoReal4
 }

@@ -13,7 +13,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
-<body onload="obterDadosGrafico(), obterDadosGrafico2()">
+<body onload="obterDadosGrafico(), obterDadosGrafico2(), obterDadosGrafico3(), obterDadosGrafico4()">
     <!--Menu-->
     <div class="header back-roxo">
         <div class="container">
@@ -122,7 +122,7 @@
             <div id="grafico_resultados_pizza">
                 <!-- grafico pizza -->
                 <span class="subtitulo">Relação de Artistas</span>
-                <canvas id="myChart4"></canvas>
+                <canvas id="myChartquarto"></canvas>
             </div>
             <div id="grafico_resultados_pizza">
                 <!-- grafico pizza -->
@@ -214,6 +214,9 @@
     nome_usuario.innerHTML = sessionStorage.NOME_USUARIO;
     window.onload = obterDadosGrafico();
     window.onload = obterDadosGrafico2();
+    window.onload = obterDadosGrafico3();
+    window.onload = obterDadosGrafico4();
+
 
 
     // PUXANDO RESULTADOS ILUSTRATIVOS PARA A LISTA DE TENTATIVAS DO USUARIO
@@ -660,11 +663,15 @@ let labels = [];
 let dados3 = {
 labels: labels,
 datasets: [{
-label: 'Número de Tentativas',
+label: 'Resultados',
 data: [],
 fill: false,
 backgroundColor: [
-'#5d91d4e3'
+'#FFC531',
+'rgba(255, 197, 49, 0.80)',
+'rgba(255, 197, 49, 0.60)',
+'rgba(255, 197, 49, 0.40)',
+'rgba(255, 197, 49, 0.20)'
 ],
 tension: 0.1
 }]
@@ -766,26 +773,175 @@ fetch(`/medidas/tempo-real3/${idUsuario3}`, { cache: 'no-store' }).then(function
 //----Quarto Gráfico----------------------------------------------------------------------------------------------------------------------
 
 
-    const ctx4 = document.getElementById('myChart4');
+    // const ctx4 = document.getElementById('myChart4');
 
-    new Chart(ctx4, {
-        type: 'pie',
-        data: {
-            labels: [
-                'O Almoço dos Barqueiros',
-                'O Boulevard Montmartre'
-            ],
-            datasets: [{
-                label: 'Resultados nas Tentativas',
-                data: [70, 30],
-                backgroundColor: [
-                    '#5d91d4e3',
-                    '#FFC531',
-                ],
-                hoverOffset: 4
-            }]
-        }
+    // new Chart(ctx4, {
+    //     type: 'pie',
+    //     data: {
+    //         labels: [
+    //             'O Almoço dos Barqueiros',
+    //             'O Boulevard Montmartre'
+    //         ],
+    //         datasets: [{
+    //             label: 'Resultados nas Tentativas',
+    //             data: [70, 30],
+    //             backgroundColor: [
+    //                 '#5d91d4e3',
+    //                 '#FFC531',
+    //             ],
+    //             hoverOffset: 4
+    //         }]
+    //     }
+    // });
+
+    function obterDadosGrafico4(idUsuario4) {
+
+// alterarTitulo(idResposta)
+
+// if (proximaAtualizacao != undefined) {
+//     clearTimeout(proximaAtualizacao);
+// // }
+
+fetch(`/medidas/ultimas4/${idUsuario4}`, { cache: 'no-store' }).then(function (response) {
+    if (response.ok) {
+        response.json().then(function (resposta) {
+            console.log(`Dados recebidos: GRaIFCO 4 ${JSON.stringify(resposta)}`);
+            resposta.reverse();
+
+            plotarGrafico4(resposta, idUsuario4);
+        });
+    } else {
+        console.error('Nenhum dado encontrado ou erro na API');
+    }
+})
+    .catch(function (error) {
+        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
     });
+}
+
+// Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
+// Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
+// A função *plotarGrafico* também invoca a função *atualizarGrafico*
+function plotarGrafico4(resposta, idUsuario4) {
+
+console.log('iniciando plotagem do gráfico...');
+
+// Criando estrutura para plotar gráfico - labels
+let labels = [];
+
+// Criando estrutura para plotar gráfico - dados
+let dados4 = {
+labels: labels,
+datasets: [{
+label: 'Resultados',
+data: [],
+fill: false,
+backgroundColor: [
+'rgba(93, 145, 212)',
+'rgba(93, 145, 212, 0.80)',
+'rgba(93, 145, 212, 0.60)',
+'rgba(93, 145, 212, 0.40)',
+'rgba(93, 145, 212, 0.20)'
+],
+tension: 0.1
+}]
+};
+
+console.log('----------------------------------------------')
+console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
+console.log(resposta)
+
+// Inserindo valores recebidos em estrutura para plotar o gráfico
+for (i3 = 0; i3 < resposta.length; i3++) {
+var registro = resposta[i3];
+labels.push(registro.artista);
+dados4.datasets[0].data.push(registro.num);
+}
+
+console.log('----------------------------------------------')
+console.log('O gráfico será plotado com os respectivos valores:')
+console.log('Labels:')
+console.log(labels)
+console.log('Dados:')
+console.log(dados4.datasets)
+console.log('----------------------------------------------')
+
+// Criando estrutura para plotar gráfico - config
+const config = {
+type: 'pie',
+data: dados4,
+};
+
+// Adicionando gráfico criado em div na tela
+let myChart4 = new Chart(
+document.getElementById('myChartquarto'),
+config
+);
+
+
+setTimeout(() => atualizarGrafico2(idUsuario4, dados4, myChart4), 2000);
+}
+
+
+// Esta função *atualizarGrafico* atualiza o gráfico que foi renderizado na página,
+// buscando a última medida inserida em tabela contendo as capturas, 
+
+//     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
+//     Para ajustar o "select", ajuste o comando sql em src/models
+function atualizarGrafico4(idUsuario4, dados4, myChart4) {
+
+
+
+fetch(`/medidas/tempo-real4/${idUsuario4}`, { cache: 'no-store' }).then(function (response) {
+    if (response.ok) {
+        response.json().then(function (novoRegistro) {
+
+            console.log(`Dados recebidos: ${JSON.stringify(novoRegistro4)}`);
+            console.log(`Dados atuais do gráfico:`);
+            console.log(dados4);
+
+            // let avisoCaptura = document.getElementById(`avisoCaptura${idUsuario}`)
+            // avisoCaptura.innerHTML = ""
+
+
+            if (novoRegistro4[0].momento_grafico == dados4.labels[dados4.labels.length]) {
+                console.log("---------------------------------------------------------------")
+                console.log("Como não há dados novos para captura, o gráfico não atualizará.")
+                // avisoCaptura.innerHTML = "<i class='fa-solid fa-triangle-exclamation'></i> Foi trazido o dado mais atual capturado pelo sensor. <br> Como não há dados novos a exibir, o gráfico não atualizará."
+                console.log("Horário do novo dado capturado:")
+                console.log(novoRegistro4[0].num)
+                console.log("Horário do último dado capturado:")
+                console.log(dados4.labels[dados4.labels.length])
+                console.log("---------------------------------------------------------------")
+            } else {
+                // tirando e colocando valores no gráfico
+                dados4.labels.shift(); // apagar o primeiro
+                dados4.labels.push(novoRegistr4[0].artista); // incluir um novo momento
+
+                dados4.datasets[0].data.shift();  // apagar o primeiro de umidade
+                dados4.datasets[0].data.push(novoRegistro4[0].num); // incluir uma nova medida de umidade
+
+
+                myChart4.update();
+            }
+
+            // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
+            // proximaAtualizacao = setTimeout(() => atualizarGrafico(idResposta, dados, myChart), 2000);
+        });
+    } else {
+        console.error('Nenhum dado encontrado ou erro na API');
+        // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
+        // proximaAtualizacao = setTimeout(() => atualizarGrafico(idResposta, dados, myChart), 2000);
+    }
+})
+    .catch(function (error) {
+        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+    });
+
+}
+// ------------Quinto Gráfico ----------------------------------------------------------------------------------------------------------------------
+
+
     const ctx5 = document.getElementById('myChart5');
 
     new Chart(ctx5, {
