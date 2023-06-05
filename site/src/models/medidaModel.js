@@ -144,7 +144,78 @@ function buscarMedidasEmTempoReal4(idUsuario4) {
     console.log("Executando a instrução SQL: \n" + instrucaoSql4);
     return database.executar(instrucaoSql4);
 }
+// ----------Quinto Gráfico------------------------------------------------------------------------------------------------------------------------
+function buscarUltimasMedidas5(idUsuario5, limite_linhas) {
 
+    instrucaoSql5 = ''
+
+    if (process.env.AMBIENTE_PROCESSO == "producao") {
+        instrucaoSql5 = `select questao4, count(resultado) as num from respostas group by questao4;`;
+    } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
+        instrucaoSql5 = `select questao4, count(resultado) as num from respostas group by questao4;`;
+    } else {
+        console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
+        return
+    }
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql5);
+    return database.executar(instrucaoSql5);
+}
+
+function buscarMedidasEmTempoReal5(idUsuario5) {
+
+    instrucaoSql5 = ''
+
+    if (process.env.AMBIENTE_PROCESSO == "producao") {
+        instrucaoSql5 = `select questao4, count(resultado) as num from respostas group by questao4;`;
+
+    } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
+        instrucaoSql5 = `select questao4, count(resultado) as num from respostas group by questao4;`;
+    } else {
+        console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
+        return
+    }
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql5);
+    return database.executar(instrucaoSql5);
+}
+
+
+// ----------Sexto Gráfico------------------------------------------------------------------------------------------------------------------------
+function buscarUltimasMedidas6(idUsuario6, limite_linhas) {
+
+    instrucaoSql6 = ''
+
+    if (process.env.AMBIENTE_PROCESSO == "producao") {
+        instrucaoSql6 = `select questao3, count(resultado) as num from respostas group by questao3;`;
+    } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
+        instrucaoSql6 = `select questao3, count(resultado) as num from respostas group by questao3;`;
+    } else {
+        console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
+        return
+    }
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql6);
+    return database.executar(instrucaoSql6);
+}
+
+function buscarMedidasEmTempoReal6(idUsuario6) {
+
+    instrucaoSql6 = ''
+
+    if (process.env.AMBIENTE_PROCESSO == "producao") {
+        instrucaoSql6 = `select questao3, count(resultado) as num from respostas group by questao3;`;
+
+    } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
+        instrucaoSql6 = `select questao3, count(resultado) as num from respostas group by questao3;`;
+    } else {
+        console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
+        return
+    }
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql6);
+    return database.executar(instrucaoSql6);
+}
 
 module.exports = {
     buscarUltimasMedidas,
@@ -154,5 +225,9 @@ module.exports = {
     buscarUltimasMedidas3,
     buscarMedidasEmTempoReal3,
     buscarUltimasMedidas4,
-    buscarMedidasEmTempoReal4
+    buscarMedidasEmTempoReal4,
+    buscarUltimasMedidas5,
+    buscarMedidasEmTempoReal5,
+    buscarUltimasMedidas6,
+    buscarMedidasEmTempoReal6
 }

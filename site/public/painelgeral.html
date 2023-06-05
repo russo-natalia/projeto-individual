@@ -13,7 +13,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
-<body onload="obterDadosGrafico(), obterDadosGrafico2(), obterDadosGrafico3(), obterDadosGrafico4()">
+<body onload="obterDadosGrafico(), obterDadosGrafico2(), obterDadosGrafico3(), obterDadosGrafico4(), obterDadosGrafico5(), obterDadosGrafico6()">
     <!--Menu-->
     <div class="header back-roxo">
         <div class="container">
@@ -127,19 +127,19 @@
             <div id="grafico_resultados_pizza">
                 <!-- grafico pizza -->
                 <span class="subtitulo">Hobbies dos Usuários</span>
-                <canvas id="myChart5"></canvas>
+                <canvas id="myChartquinto"></canvas>
             </div>
         </div>
         <div class="linha-graficos" id="linha-ranking-2">
             <div id="grafico_resultados_pizza">
                 <!-- grafico pizza -->
                 <span class="subtitulo">Características dos Usuários</span>
-                <canvas id="myChart6"></canvas>
+                <canvas id="myChartsexto"></canvas>
             </div>
             <div id="grafico_resultados_barra">
                 <!-- grafico pizza -->
                 <span class="subtitulo">Meses x Resultados</span>
-                <canvas id="myChart7"></canvas>
+                <canvas id="myChartsetimo"></canvas>
             </div>
 
         </div>
@@ -216,8 +216,8 @@
     window.onload = obterDadosGrafico2();
     window.onload = obterDadosGrafico3();
     window.onload = obterDadosGrafico4();
-
-
+    window.onload = obterDadosGrafico5();
+    window.onload = obterDadosGrafico6();
 
     // PUXANDO RESULTADOS ILUSTRATIVOS PARA A LISTA DE TENTATIVAS DO USUARIO
     function puxarTentativasBD() {
@@ -246,39 +246,9 @@
     puxarTentativasBD()
 
 
-    //GRÁFICO DE TENTATIVAS USUARIO PIZZa
-    // const ctx = document.getElementById('myChart');
-
-    // new Chart(ctx, {
-    //     type: 'pie',
-    //     data: {
-    //         labels: [
-    //             'O Almoço dos Barqueiros',
-    //             'O Boulevard Montmartre'
-    //         ],
-    //         datasets: [{
-    //             label: 'Resultados nas Tentativas',
-    //             data: [70, 30],
-    //             backgroundColor: [
-    //                 '#5d91d4e3',
-    //                 '#FFC531',
-    //             ],
-    //             hoverOffset: 4
-    //         }]
-    //     }
-    // });
     // ------Primeiro Gráfico---------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-    // Gerando o primeiro gráfico
-    // let proximaAtualizacao;
-
     function obterDadosGrafico(idUsuario) {
-
-// alterarTitulo(idResposta)
-
-// if (proximaAtualizacao != undefined) {
-//     clearTimeout(proximaAtualizacao);
-// // }
 
 fetch(`/medidas/ultimas/${idUsuario}`, { cache: 'no-store' }).then(function (response) {
     if (response.ok) {
@@ -297,9 +267,6 @@ fetch(`/medidas/ultimas/${idUsuario}`, { cache: 'no-store' }).then(function (res
     });
 }
 
-// Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
-// Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
-// A função *plotarGrafico* também invoca a função *atualizarGrafico*
 function plotarGrafico(resposta, idUsuario) {
 
 console.log('iniciando plotagem do gráfico...');
@@ -367,12 +334,6 @@ config
 setTimeout(() => atualizarGrafico(idUsuario, dados, myChart), 2000);
 }
 
-
-// Esta função *atualizarGrafico* atualiza o gráfico que foi renderizado na página,
-// buscando a última medida inserida em tabela contendo as capturas, 
-
-//     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
-//     Para ajustar o "select", ajuste o comando sql em src/models
 function atualizarGrafico(idUsuario, dados, myChart) {
 
 
@@ -425,39 +386,6 @@ fetch(`/medidas/tempo-real/${idUsuario}`, { cache: 'no-store' }).then(function (
 
 }
     // ---------Segundo Gráfico------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-
-    //GRÁFICO DE TENTATIVAS USUARIO PIZZa
-    // const ctx2 = document.getElementById('myChart2');
-
-    // new Chart(ctx2, {
-    //     type: 'bar',
-    //     data: {
-    //         labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
-    //         datasets: [{
-    //             label: 'Tentativas x Meses',
-    //             data: [1, 2, 0, 2, 1, 1],
-    //             borderWidth: 1,
-    //             backgroundColor: [
-    //                 '#5d91d4e3',
-    //                 '#5d91d4e3',
-    //                 '#5d91d4e3',
-    //                 '#5d91d4e3',
-    //                 '#5d91d4e3',
-    //                 '#5d91d4e3'
-    //             ],
-    //         }]
-    //     },
-    //     options: {
-    //         scales: {
-    //             y: {
-    //                 beginAtZero: true
-    //             }
-    //         }
-    //     }
-    // });
-
-    
     function obterDadosGrafico2(idUsuario2) {
 
 // alterarTitulo(idResposta)
@@ -483,9 +411,7 @@ fetch(`/medidas/ultimas2/${idUsuario2}`, { cache: 'no-store' }).then(function (r
     });
 }
 
-// Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
-// Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
-// A função *plotarGrafico* também invoca a função *atualizarGrafico*
+
 function plotarGrafico2(resposta, idUsuario2) {
 
 console.log('iniciando plotagem do gráfico...');
@@ -542,19 +468,13 @@ config
 setTimeout(() => atualizarGrafico2(idUsuario2, dados2, myChart2), 2000);
 }
 
-
-// Esta função *atualizarGrafico* atualiza o gráfico que foi renderizado na página,
-// buscando a última medida inserida em tabela contendo as capturas, 
-
-//     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
-//     Para ajustar o "select", ajuste o comando sql em src/models
 function atualizarGrafico2(idUsuario2, dados2, myChart2) {
 
 
 
 fetch(`/medidas/tempo-real2/${idUsuario2}`, { cache: 'no-store' }).then(function (response) {
     if (response.ok) {
-        response.json().then(function (novoRegistro) {
+        response.json().then(function (novoRegistro2) {
 
             console.log(`Dados recebidos: ${JSON.stringify(novoRegistro2)}`);
             console.log(`Dados atuais do gráfico:`);
@@ -602,28 +522,6 @@ fetch(`/medidas/tempo-real2/${idUsuario2}`, { cache: 'no-store' }).then(function
 
     // ---------Terceiro Gráfico------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-    // const ctx3 = document.getElementById('myChart3');
-
-    // new Chart(ctx3, {
-    //     type: 'pie',
-    //     data: {
-    //         labels: [
-    //             'O Almoço dos Barqueiros',
-    //             'O Boulevard Montmartre'
-    //         ],
-    //         datasets: [{
-    //             label: 'Resultados nas Tentativas',
-    //             data: [70, 30],
-    //             backgroundColor: [
-    //                 '#5d91d4e3',
-    //                 '#FFC531',
-    //             ],
-    //             hoverOffset: 4
-    //         }]
-    //     }
-    // });
-
-
     function obterDadosGrafico3(idUsuario3) {
 
 // alterarTitulo(idResposta)
@@ -649,9 +547,6 @@ fetch(`/medidas/ultimas3/${idUsuario3}`, { cache: 'no-store' }).then(function (r
     });
 }
 
-// Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
-// Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
-// A função *plotarGrafico* também invoca a função *atualizarGrafico*
 function plotarGrafico3(resposta, idUsuario3) {
 
 console.log('iniciando plotagem do gráfico...');
@@ -709,22 +604,16 @@ config
 );
 
 
-setTimeout(() => atualizarGrafico2(idUsuario3, dados3, myChart3), 2000);
+setTimeout(() => atualizarGrafico3(idUsuario3, dados3, myChart3), 2000);
 }
 
-
-// Esta função *atualizarGrafico* atualiza o gráfico que foi renderizado na página,
-// buscando a última medida inserida em tabela contendo as capturas, 
-
-//     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
-//     Para ajustar o "select", ajuste o comando sql em src/models
 function atualizarGrafico3(idUsuario3, dados3, myChart3) {
 
 
 
 fetch(`/medidas/tempo-real3/${idUsuario3}`, { cache: 'no-store' }).then(function (response) {
     if (response.ok) {
-        response.json().then(function (novoRegistro) {
+        response.json().then(function (novoRegistro3) {
 
             console.log(`Dados recebidos: ${JSON.stringify(novoRegistro3)}`);
             console.log(`Dados atuais do gráfico:`);
@@ -772,35 +661,7 @@ fetch(`/medidas/tempo-real3/${idUsuario3}`, { cache: 'no-store' }).then(function
 
 //----Quarto Gráfico----------------------------------------------------------------------------------------------------------------------
 
-
-    // const ctx4 = document.getElementById('myChart4');
-
-    // new Chart(ctx4, {
-    //     type: 'pie',
-    //     data: {
-    //         labels: [
-    //             'O Almoço dos Barqueiros',
-    //             'O Boulevard Montmartre'
-    //         ],
-    //         datasets: [{
-    //             label: 'Resultados nas Tentativas',
-    //             data: [70, 30],
-    //             backgroundColor: [
-    //                 '#5d91d4e3',
-    //                 '#FFC531',
-    //             ],
-    //             hoverOffset: 4
-    //         }]
-    //     }
-    // });
-
     function obterDadosGrafico4(idUsuario4) {
-
-// alterarTitulo(idResposta)
-
-// if (proximaAtualizacao != undefined) {
-//     clearTimeout(proximaAtualizacao);
-// // }
 
 fetch(`/medidas/ultimas4/${idUsuario4}`, { cache: 'no-store' }).then(function (response) {
     if (response.ok) {
@@ -819,9 +680,6 @@ fetch(`/medidas/ultimas4/${idUsuario4}`, { cache: 'no-store' }).then(function (r
     });
 }
 
-// Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
-// Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
-// A função *plotarGrafico* também invoca a função *atualizarGrafico*
 function plotarGrafico4(resposta, idUsuario4) {
 
 console.log('iniciando plotagem do gráfico...');
@@ -879,22 +737,16 @@ config
 );
 
 
-setTimeout(() => atualizarGrafico2(idUsuario4, dados4, myChart4), 2000);
+setTimeout(() => atualizarGrafico4(idUsuario4, dados4, myChart4), 2000);
 }
 
-
-// Esta função *atualizarGrafico* atualiza o gráfico que foi renderizado na página,
-// buscando a última medida inserida em tabela contendo as capturas, 
-
-//     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
-//     Para ajustar o "select", ajuste o comando sql em src/models
 function atualizarGrafico4(idUsuario4, dados4, myChart4) {
 
 
 
 fetch(`/medidas/tempo-real4/${idUsuario4}`, { cache: 'no-store' }).then(function (response) {
     if (response.ok) {
-        response.json().then(function (novoRegistro) {
+        response.json().then(function (novoRegistro4) {
 
             console.log(`Dados recebidos: ${JSON.stringify(novoRegistro4)}`);
             console.log(`Dados atuais do gráfico:`);
@@ -916,7 +768,7 @@ fetch(`/medidas/tempo-real4/${idUsuario4}`, { cache: 'no-store' }).then(function
             } else {
                 // tirando e colocando valores no gráfico
                 dados4.labels.shift(); // apagar o primeiro
-                dados4.labels.push(novoRegistr4[0].artista); // incluir um novo momento
+                dados4.labels.push(novoRegistro4[0].artista); // incluir um novo momento
 
                 dados4.datasets[0].data.shift();  // apagar o primeiro de umidade
                 dados4.datasets[0].data.push(novoRegistro4[0].num); // incluir uma nova medida de umidade
@@ -941,48 +793,276 @@ fetch(`/medidas/tempo-real4/${idUsuario4}`, { cache: 'no-store' }).then(function
 }
 // ------------Quinto Gráfico ----------------------------------------------------------------------------------------------------------------------
 
+    function obterDadosGrafico5(idUsuario5) {
 
-    const ctx5 = document.getElementById('myChart5');
 
-    new Chart(ctx5, {
-        type: 'pie',
-        data: {
-            labels: [
-                'O Almoço dos Barqueiros',
-                'O Boulevard Montmartre'
-            ],
-            datasets: [{
-                label: 'Resultados nas Tentativas',
-                data: [70, 30],
-                backgroundColor: [
-                    '#5d91d4e3',
-                    '#FFC531',
-                ],
-                hoverOffset: 4
-            }]
-        }
+fetch(`/medidas/ultimas5/${idUsuario5}`, { cache: 'no-store' }).then(function (response) {
+    if (response.ok) {
+        response.json().then(function (resposta) {
+            console.log(`Dados recebidos: GRaIFCO 5 ${JSON.stringify(resposta)}`);
+            resposta.reverse();
+
+            plotarGrafico5(resposta, idUsuario5);
+        });
+    } else {
+        console.error('Nenhum dado encontrado ou erro na API');
+    }
+})
+    .catch(function (error) {
+        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+    });
+}
+
+
+function plotarGrafico5(resposta, idUsuario5) {
+
+console.log('iniciando plotagem do gráfico...');
+
+// Criando estrutura para plotar gráfico - labels
+let labels = [];
+
+// Criando estrutura para plotar gráfico - dados
+let dados5 = {
+labels: labels,
+datasets: [{
+label: 'Resultados',
+data: [],
+fill: false,
+backgroundColor: [
+'#FFC531',
+'rgba(255, 197, 49, 0.80)',
+'rgba(255, 197, 49, 0.60)',
+'rgba(255, 197, 49, 0.40)',
+'rgba(255, 197, 49, 0.20)'
+],
+tension: 0.1
+}]
+};
+
+console.log('----------------------------------------------')
+console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
+console.log(resposta)
+
+// Inserindo valores recebidos em estrutura para plotar o gráfico
+for (i3 = 0; i3 < resposta.length; i3++) {
+var registro = resposta[i3];
+labels.push(registro.questao4);
+dados5.datasets[0].data.push(registro.num);
+}
+
+console.log('----------------------------------------------')
+console.log('O gráfico será plotado com os respectivos valores:')
+console.log('Labels:')
+console.log(labels)
+console.log('Dados:')
+console.log(dados5.datasets)
+console.log('----------------------------------------------')
+
+// Criando estrutura para plotar gráfico - config
+const config = {
+type: 'pie',
+data: dados5,
+};
+
+// Adicionando gráfico criado em div na tela
+let myChart5 = new Chart(
+document.getElementById('myChartquinto'),
+config
+);
+
+
+setTimeout(() => atualizarGrafico5(idUsuario5, dados5, myChart5), 2000);
+}
+
+function atualizarGrafico5(idUsuario5, dados5, myChart5) {
+
+
+
+fetch(`/medidas/tempo-real5/${idUsuario5}`, { cache: 'no-store' }).then(function (response) {
+    if (response.ok) {
+        response.json().then(function (novoRegistro5) {
+
+            console.log(`Dados recebidos: ${JSON.stringify(novoRegistro5)}`);
+            console.log(`Dados atuais do gráfico:`);
+            console.log(dados5);
+
+            // let avisoCaptura = document.getElementById(`avisoCaptura${idUsuario}`)
+            // avisoCaptura.innerHTML = ""
+
+
+            if (novoRegistro5[0].momento_grafico == dados5.labels[dados5.labels.length]) {
+                console.log("---------------------------------------------------------------")
+                console.log("Como não há dados novos para captura, o gráfico não atualizará.")
+                // avisoCaptura.innerHTML = "<i class='fa-solid fa-triangle-exclamation'></i> Foi trazido o dado mais atual capturado pelo sensor. <br> Como não há dados novos a exibir, o gráfico não atualizará."
+                console.log("Horário do novo dado capturado:")
+                console.log(novoRegistro5[0].num)
+                console.log("Horário do último dado capturado:")
+                console.log(dados5.labels[dados5.labels.length])
+                console.log("---------------------------------------------------------------")
+            } else {
+                // tirando e colocando valores no gráfico
+                dados5.labels.shift(); // apagar o primeiro
+                dados5.labels.push(novoRegistro5[0].questao4); // incluir um novo momento
+
+                dados5.datasets[0].data.shift();  // apagar o primeiro de umidade
+                dados5.datasets[0].data.push(novoRegistro5[0].num); // incluir uma nova medida de umidade
+
+
+                myChart5.update();
+            }
+
+            // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
+            // proximaAtualizacao = setTimeout(() => atualizarGrafico(idResposta, dados, myChart), 2000);
+        });
+    } else {
+        console.error('Nenhum dado encontrado ou erro na API');
+        // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
+        // proximaAtualizacao = setTimeout(() => atualizarGrafico(idResposta, dados, myChart), 2000);
+    }
+})
+    .catch(function (error) {
+        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
     });
 
-    const ctx6 = document.getElementById('myChart6');
+}
 
-    new Chart(ctx6, {
-        type: 'pie',
-        data: {
-            labels: [
-                'O Almoço dos Barqueiros',
-                'O Boulevard Montmartre'
-            ],
-            datasets: [{
-                label: 'Resultados nas Tentativas',
-                data: [70, 30],
-                backgroundColor: [
-                    '#5d91d4e3',
-                    '#FFC531',
-                ],
-                hoverOffset: 4
-            }]
-        }
+
+// -------------Sexto Gráfico-------------------------------------------------------------------------------------------------------------------------------
+
+    function obterDadosGrafico6(idUsuario6) {
+
+
+fetch(`/medidas/ultimas6/${idUsuario6}`, { cache: 'no-store' }).then(function (response) {
+    if (response.ok) {
+        response.json().then(function (resposta) {
+            console.log(`Dados recebidos: GRaIFCO 6 ${JSON.stringify(resposta)}`);
+            resposta.reverse();
+
+            plotarGrafico6(resposta, idUsuario6);
+        });
+    } else {
+        console.error('Nenhum dado encontrado ou erro na API');
+    }
+})
+    .catch(function (error) {
+        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
     });
+}
+
+
+function plotarGrafico6(resposta, idUsuario6) {
+
+console.log('iniciando plotagem do gráfico...');
+
+// Criando estrutura para plotar gráfico - labels
+let labels = [];
+
+// Criando estrutura para plotar gráfico - dados
+let dados6 = {
+labels: labels,
+datasets: [{
+label: 'Resultados',
+data: [],
+fill: false,
+backgroundColor: [
+'rgba(93, 145, 212)',
+'rgba(93, 145, 212, 0.80)',
+'rgba(93, 145, 212, 0.60)',
+'rgba(93, 145, 212, 0.40)',
+'rgba(93, 145, 212, 0.20)'
+],
+tension: 0.1
+}]
+};
+
+console.log('----------------------------------------------')
+console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
+console.log(resposta)
+
+// Inserindo valores recebidos em estrutura para plotar o gráfico
+for (i3 = 0; i3 < resposta.length; i3++) {
+var registro = resposta[i3];
+labels.push(registro.questao3);
+dados6.datasets[0].data.push(registro.num);
+}
+
+console.log('----------------------------------------------')
+console.log('O gráfico será plotado com os respectivos valores:')
+console.log('Labels:')
+console.log(labels)
+console.log('Dados:')
+console.log(dados6.datasets)
+console.log('----------------------------------------------')
+
+// Criando estrutura para plotar gráfico - config
+const config = {
+type: 'pie',
+data: dados6,
+};
+
+// Adicionando gráfico criado em div na tela
+let myChart6 = new Chart(
+document.getElementById('myChartsexto'),
+config
+);
+
+
+setTimeout(() => atualizarGrafico6(idUsuario6, dados6, myChart6), 2000);
+}
+
+function atualizarGrafico6(idUsuario6, dados6, myChart6) {
+
+
+
+fetch(`/medidas/tempo-real6/${idUsuario6}`, { cache: 'no-store' }).then(function (response) {
+    if (response.ok) {
+        response.json().then(function (novoRegistro6) {
+
+            console.log(`Dados recebidos: ${JSON.stringify(novoRegistro6)}`);
+            console.log(`Dados atuais do gráfico:`);
+            console.log(dados6);
+
+            // let avisoCaptura = document.getElementById(`avisoCaptura${idUsuario}`)
+            // avisoCaptura.innerHTML = ""
+
+
+            if (novoRegistro6[0].momento_grafico == dados6.labels[dados6.labels.length]) {
+                console.log("---------------------------------------------------------------")
+                console.log("Como não há dados novos para captura, o gráfico não atualizará.")
+                // avisoCaptura.innerHTML = "<i class='fa-solid fa-triangle-exclamation'></i> Foi trazido o dado mais atual capturado pelo sensor. <br> Como não há dados novos a exibir, o gráfico não atualizará."
+                console.log("Horário do novo dado capturado:")
+                console.log(novoRegistro6[0].num)
+                console.log("Horário do último dado capturado:")
+                console.log(dados6.labels[dados6.labels.length])
+                console.log("---------------------------------------------------------------")
+            } else {
+                // tirando e colocando valores no gráfico
+                dados6.labels.shift(); // apagar o primeiro
+                dados6.labels.push(novoRegistro6[0].questao3); // incluir um novo momento
+
+                dados6.datasets[0].data.shift();  // apagar o primeiro de umidade
+                dados6.datasets[0].data.push(novoRegistro6[0].num); // incluir uma nova medida de umidade
+
+
+                myChart6.update();
+            }
+
+            // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
+            // proximaAtualizacao = setTimeout(() => atualizarGrafico(idResposta, dados, myChart), 2000);
+        });
+    } else {
+        console.error('Nenhum dado encontrado ou erro na API');
+        // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
+        // proximaAtualizacao = setTimeout(() => atualizarGrafico(idResposta, dados, myChart), 2000);
+    }
+})
+    .catch(function (error) {
+        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+    });
+
+}
+
+// ---------Sétimo Gráfico------------------------------------------------------------------------------------------------------------------------------
 
     const ctx7 = document.getElementById('myChart7');
 
@@ -1007,6 +1087,8 @@ fetch(`/medidas/tempo-real4/${idUsuario4}`, { cache: 'no-store' }).then(function
             }]
         }
     });
+
+// ---------OITAVO Gráfico ESTATICO------------------------------------------------------------------------------------------------------------------------------
 
     const ctx8 = document.getElementById('myChart8');
 

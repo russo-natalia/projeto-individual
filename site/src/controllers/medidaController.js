@@ -167,6 +167,90 @@ function buscarMedidasEmTempoReal4(req, res) {
     });
 }
 
+// ---------Quinto Gráfico-------------------------------------------------------------------------------------------------------------------------------------------
+function buscarUltimasMedidas5(req, res) {
+
+    const limite_linhas = 7;
+
+    var idUsuario5 = req.params.idUsuario5;
+
+    console.log(`Recuperando as ultimas ${limite_linhas} medidas`);
+
+    medidaModel.buscarUltimasMedidas5(idUsuario5, limite_linhas).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
+
+function buscarMedidasEmTempoReal5(req, res) {
+
+    var idUsuario5 = req.params.idUsuario5;
+
+    console.log(`Recuperando medidas em tempo real`);
+
+    medidaModel.buscarMedidasEmTempoReal5(idUsuario5).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
+// ---------Sexto Gráfico-------------------------------------------------------------------------------------------------------------------------------------------
+function buscarUltimasMedidas6(req, res) {
+
+    const limite_linhas = 7;
+
+    var idUsuario6 = req.params.idUsuario6;
+
+    console.log(`Recuperando as ultimas ${limite_linhas} medidas`);
+
+    medidaModel.buscarUltimasMedidas6(idUsuario6, limite_linhas).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
+
+function buscarMedidasEmTempoReal6(req, res) {
+
+    var idUsuario6 = req.params.idUsuario6;
+
+    console.log(`Recuperando medidas em tempo real`);
+
+    medidaModel.buscarMedidasEmTempoReal6(idUsuario6).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
 module.exports = {
     buscarUltimasMedidas,
     buscarMedidasEmTempoReal,
@@ -175,5 +259,9 @@ module.exports = {
     buscarUltimasMedidas3,
     buscarMedidasEmTempoReal3,
     buscarUltimasMedidas4,
-    buscarMedidasEmTempoReal4
+    buscarMedidasEmTempoReal4,
+    buscarUltimasMedidas5,
+    buscarMedidasEmTempoReal5,
+    buscarUltimasMedidas6,
+    buscarMedidasEmTempoReal6
 }
