@@ -38,18 +38,26 @@ select * from usuario;
 select * from faleConosco;
 select * from respostas;
 
+insert into respostas values 
+(null, 2,'O Jardim em Sainte-Adresse', 'Claude Monet', '2023-04-20 19:27:57', 'natureza', 'Cores Vivas', 'Disciplinado', 'Ler', 'Outono'),
+(null, 2,'A Aula de Dança', 'Edgar Degas', '2023-03-20 19:27:57', 'natureza', 'Cores Neutras', 'Descontraido', 'Ler', 'Outono'),
+(null, 2,'O Almoço dos Barqueiros', 'Pierre-Auguste Renoir', '2023-02-20 19:27:57', 'natureza', 'Cores Vivas', 'Inteligente', 'Atividade Física', 'Outono'),
+(null, 2,'O Jardim em Sainte-Adresse', 'Claude Monet', '2023-03-20 19:27:57', 'natureza', 'Cores Vivas', 'Disciplinado', 'Ler', 'Outono');
+
  -- Resultados x Tentativas de usuario
 select resultado, count(resultado) from respostas where fkUsuario = 1 group by resultado;
 -- tentativas x meses de usuario
 select date_format(dtHorario, '%m') as mes, count(*) as tentativas from respostas where fkUsuario = 1 group by date_format(dtHorario, '%m');
 
  -- Resultados x Tentativas
-select resultado, count(resultado) from respostas group by resultado;
+select resultado, count(resultado) as num from respostas group by resultado;
 -- tentativas x meses
-select date_format(dtHorario, '%m') as mes, count(*) as tentativas from respostas group by date_format(dtHorario, '%m');
+select date_format(dtHorario, '%M') as mes, count(*) as num from respostas group by date_format(dtHorario, '%M');
 -- relação de artistas
-select artista, count(resultado) from respostas group by artista;
+select artista, count(resultado) as num from respostas group by artista;
 -- relação de caracteristicas
-select questao3, count(resultado) from respostas group by questao3;
+select questao3, count(resultado) as num from respostas group by questao3;
 -- relação de hobbies 
-select questao4, count(resultado) from respostas group by questao4;
+select questao4, count(resultado) as num from respostas group by questao4;
+
+select resultado, count(resultado) as num from respostas group by resultado;
