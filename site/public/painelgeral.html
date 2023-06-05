@@ -13,7 +13,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
-<body onload="obterDadosGrafico(), obterDadosGrafico2(), obterDadosGrafico3(), obterDadosGrafico4(), obterDadosGrafico5(), obterDadosGrafico6()">
+<body onload="obterDadosGrafico(), obterDadosGrafico2(), obterDadosGrafico3(), obterDadosGrafico4(), obterDadosGrafico5(), obterDadosGrafico6(), obterDadosGrafico7()">
     <!--Menu-->
     <div class="header back-roxo">
         <div class="container">
@@ -218,6 +218,8 @@
     window.onload = obterDadosGrafico4();
     window.onload = obterDadosGrafico5();
     window.onload = obterDadosGrafico6();
+    window.onload = obterDadosGrafico7();
+
 
     // PUXANDO RESULTADOS ILUSTRATIVOS PARA A LISTA DE TENTATIVAS DO USUARIO
     function puxarTentativasBD() {
@@ -1064,29 +1066,134 @@ fetch(`/medidas/tempo-real6/${idUsuario6}`, { cache: 'no-store' }).then(function
 
 // ---------Sétimo Gráfico------------------------------------------------------------------------------------------------------------------------------
 
-    const ctx7 = document.getElementById('myChart7');
+    function obterDadosGrafico7(idUsuario7) {
 
-    new Chart(ctx7, {
-        type: 'line',
-        data: {
-            labels: [
-                'Janeiro',
-                'Fevereiro',
-                'Março',
-                'Abril',
-                'Fevereiro',
-                'Junho'
-            ],
-            datasets: [{
-                label: 'Resultados nas Tentativas',
-                data: [10, 10, 11, 23, 5, 1],
-                backgroundColor: [
-                    '#FFC531',
-                ],
-                hoverOffset: 4
-            }]
-        }
+
+fetch(`/medidas/ultimas7/${idUsuario7}`, { cache: 'no-store' }).then(function (response) {
+    if (response.ok) {
+        response.json().then(function (resposta) {
+            console.log(`Dados recebidos: GRaIFCO 7 ${JSON.stringify(resposta)}`);
+            resposta.reverse();
+
+            plotarGrafico7(resposta, idUsuario7);
+        });
+    } else {
+        console.error('Nenhum dado encontrado ou erro na API');
+    }
+})
+    .catch(function (error) {
+        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
     });
+}
+
+
+function plotarGrafico7(resposta, idUsuario7) {
+
+console.log('iniciando plotagem do gráfico...');
+
+// Criando estrutura para plotar gráfico - labels
+let labels = [];
+
+// Criando estrutura para plotar gráfico - dados
+let dados7 = {
+labels: labels,
+datasets: [{
+label: 'Número de Tentativas',
+data: [],
+fill: false,
+backgroundColor: [
+'#FFC531'
+],
+tension: 0.1
+}]
+};
+
+console.log('----------------------------------------------')
+console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
+console.log(resposta)
+
+// Inserindo valores recebidos em estrutura para plotar o gráfico
+for (i3 = 0; i3 < resposta.length; i3++) {
+var registro = resposta[i3];
+labels.push(registro.mes);
+dados7.datasets[0].data.push(registro.num);
+}
+
+console.log('----------------------------------------------')
+console.log('O gráfico será plotado com os respectivos valores:')
+console.log('Labels:')
+console.log(labels)
+console.log('Dados:')
+console.log(dados7.datasets)
+console.log('----------------------------------------------')
+
+// Criando estrutura para plotar gráfico - config
+const config = {
+type: 'line',
+data: dados7,
+};
+
+// Adicionando gráfico criado em div na tela
+let myChart7 = new Chart(
+document.getElementById('myChartsetimo'),
+config
+);
+
+
+setTimeout(() => atualizarGrafico7(idUsuario7, dados7, myChart7), 2000);
+}
+
+function atualizarGrafico7(idUsuario7, dados7, myChart7) {
+
+
+
+fetch(`/medidas/tempo-real7/${idUsuario7}`, { cache: 'no-store' }).then(function (response) {
+    if (response.ok) {
+        response.json().then(function (novoRegistro7) {
+
+            console.log(`Dados recebidos: ${JSON.stringify(novoRegistro7)}`);
+            console.log(`Dados atuais do gráfico:`);
+            console.log(dados7);
+
+            // let avisoCaptura = document.getElementById(`avisoCaptura${idUsuario}`)
+            // avisoCaptura.innerHTML = ""
+
+
+            if (novoRegistro7[0].momento_grafico == dados7.labels[dados7.labels.length]) {
+                console.log("---------------------------------------------------------------")
+                console.log("Como não há dados novos para captura, o gráfico não atualizará.")
+                // avisoCaptura.innerHTML = "<i class='fa-solid fa-triangle-exclamation'></i> Foi trazido o dado mais atual capturado pelo sensor. <br> Como não há dados novos a exibir, o gráfico não atualizará."
+                console.log("Horário do novo dado capturado:")
+                console.log(novoRegistro7[0].num)
+                console.log("Horário do último dado capturado:")
+                console.log(dados7.labels[dados7.labels.length])
+                console.log("---------------------------------------------------------------")
+            } else {
+                // tirando e colocando valores no gráfico
+                dados7.labels.shift(); // apagar o primeiro
+                dados7.labels.push(novoRegistro7[0].mes); // incluir um novo momento
+
+                dados7.datasets[0].data.shift();  // apagar o primeiro de umidade
+                dados7.datasets[0].data.push(novoRegistro7[0].num); // incluir uma nova medida de umidade
+
+
+                myChart7.update();
+            }
+
+            // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
+            // proximaAtualizacao = setTimeout(() => atualizarGrafico(idResposta, dados, myChart), 2000);
+        });
+    } else {
+        console.error('Nenhum dado encontrado ou erro na API');
+        // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
+        // proximaAtualizacao = setTimeout(() => atualizarGrafico(idResposta, dados, myChart), 2000);
+    }
+})
+    .catch(function (error) {
+        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+    });
+
+}
 
 // ---------OITAVO Gráfico ESTATICO------------------------------------------------------------------------------------------------------------------------------
 

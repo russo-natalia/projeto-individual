@@ -217,6 +217,42 @@ function buscarMedidasEmTempoReal6(idUsuario6) {
     return database.executar(instrucaoSql6);
 }
 
+// ----------Sétimo Gráfico------------------------------------------------------------------------------------------------------------------------
+function buscarUltimasMedidas7(idUsuario7, limite_linhas) {
+
+    instrucaoSql7 = ''
+
+    if (process.env.AMBIENTE_PROCESSO == "producao") {
+        instrucaoSql7 = `select date_format(dtHorario, '%M') as mes, count(*) as num from respostas group by date_format(dtHorario, '%M');`;
+    } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
+        instrucaoSql7 = `select date_format(dtHorario, '%M') as mes, count(*) as num from respostas group by date_format(dtHorario, '%M');`;
+    } else {
+        console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
+        return
+    }
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql7);
+    return database.executar(instrucaoSql7);
+}
+
+function buscarMedidasEmTempoReal7(idUsuario7) {
+
+    instrucaoSql7 = ''
+
+    if (process.env.AMBIENTE_PROCESSO == "producao") {
+        instrucaoSql7 = `select date_format(dtHorario, '%M') as mes, count(*) as num from respostas group by date_format(dtHorario, '%M');`;
+
+    } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
+        instrucaoSql7 = `select date_format(dtHorario, '%M') as mes, count(*) as num from respostas group by date_format(dtHorario, '%M');`;
+    } else {
+        console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
+        return
+    }
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql7);
+    return database.executar(instrucaoSql7);
+}
+
 module.exports = {
     buscarUltimasMedidas,
     buscarMedidasEmTempoReal,
@@ -229,5 +265,7 @@ module.exports = {
     buscarUltimasMedidas5,
     buscarMedidasEmTempoReal5,
     buscarUltimasMedidas6,
-    buscarMedidasEmTempoReal6
+    buscarMedidasEmTempoReal6,
+    buscarUltimasMedidas7,
+    buscarMedidasEmTempoReal7
 }
