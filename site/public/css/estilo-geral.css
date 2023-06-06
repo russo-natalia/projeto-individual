@@ -168,7 +168,7 @@ body {
     display: flex;
     justify-content: center;
     text-align: center;
-    height: 500px;
+    height: 700px;
 }
 
 #avaliacao button {
@@ -187,4 +187,11 @@ body {
     background-color: #d9d9d94d;
     border-color: rgba(93, 145, 212, 0.89);
 }
+
+.texto-avaliacao {
+    width: 60%;
+    text-align: justify;
+    margin: auto;
+}
+
 
