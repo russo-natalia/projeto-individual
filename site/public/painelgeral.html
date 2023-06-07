@@ -52,7 +52,7 @@
         <div class="linha-graficos">
             <div class="cards-kpis-seus">
                 <span>Seu Resultado Mais<br> Recorrente </span>
-                <h1 class="color-amarelo">
+                <h1 class="color-amarelo" id="kpi1">
                     <!-- KPI -->
                     A aula de Dança
                 </h1>
@@ -77,36 +77,36 @@
         <div class="titulo color-roxo">
             <span>Ranking Geral</span>
         </div>
-        <div class="linha-graficos">
+        <!-- <div class="linha-graficos">
             <div class="cards-kpis">
                 <span>Resultado Mais <br> Recorrente</span>
-                <h1 class="color-amarelo">
-                    <!-- KPI -->
+                <h1 class="color-amarelo" id="kpi2">
+                   
                     O Almoço dos Barqueiros
                 </h1>
             </div>
             <div class="cards-kpis">
                 <span>Artista Mais <br> Recorrente</span>
-                <h1 class="color-amarelo">
-                    <!-- KPI -->
+                <h1 class="color-amarelo" id="kpi3">
+                   
                     Claude Monet
                 </h1>
             </div>
             <div class="cards-kpis">
                 <span>Idade Média <br> de Usuário</span>
-                <h1 class="color-amarelo">
-                    <!-- KPI -->
-                    <span class="kpi-num">26</span>
+                <h1 class="color-amarelo" >
+                  
+                    <span class="kpi-num" id="kpi4">26</span>
                 </h1>
             </div>
             <div class="cards-kpis">
                 <span>Número Médio de Tentativas por Usuário</span>
                 <h1>
-                    <!-- KPI -->
-                    <span class="kpi-num color-amarelo">4</span>
+                    
+                    <span class="kpi-num color-amarelo" id="kpi5">4</span>
                 </h1>
             </div>
-        </div>
+        </div -->
 
         <div class="linha-graficos" id="linha-ranking-2">
             <div id="grafico_resultados_pizza">
@@ -218,6 +218,7 @@
 
     // ------Primeiro Gráfico---------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+
     function obterDadosGrafico(idUsuario) {
 
 fetch(`/medidas/ultimas/${idUsuario}`, { cache: 'no-store' }).then(function (response) {
@@ -272,11 +273,18 @@ console.log('----------------------------------------------')
 console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
 console.log(resposta)
 
+var inicio = resposta[0].num;
 // Inserindo valores recebidos em estrutura para plotar o gráfico
 for (i = 0; i < resposta.length; i++) {
 var registro = resposta[i];
 labels.push(registro.resultado);
 dados.datasets[0].data.push(registro.num);
+
+if (registro.num >= inicio) {
+    inicio = registro.num;
+    kpi1.innerHTML = registro.resultado;
+    console.log(inicio)
+} 
 }
 
 console.log('----------------------------------------------')

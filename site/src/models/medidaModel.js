@@ -5,9 +5,9 @@ function buscarUltimasMedidas(idUsuario, limite_linhas) {
     instrucaoSql = ''
 //COLOCAR O ID DO USUARIO
     if (process.env.AMBIENTE_PROCESSO == "producao") {
-        instrucaoSql = `select resultado, count(resultado) as num from respostas  where fkUsuario = ${1} group by resultado`;
+        instrucaoSql = `select resultado, count(resultado) as num from respostas  where fkUsuario = ${2} group by resultado`;
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
-        instrucaoSql = `select resultado, count(resultado) as num from respostas where fkUsuario = ${1} group by resultado`;
+        instrucaoSql = `select resultado, count(resultado) as num from respostas where fkUsuario = ${2} group by resultado`;
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
         return
@@ -22,10 +22,10 @@ function buscarMedidasEmTempoReal(idUsuario) {
     instrucaoSql = ''
 
     if (process.env.AMBIENTE_PROCESSO == "producao") {
-        instrucaoSql = `select resultado, count(resultado) as num from where fkUsuario = ${1} respostas group by resultado`;
+        instrucaoSql = `select resultado, count(resultado) as num from where fkUsuario = ${2} respostas group by resultado`;
 
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
-        instrucaoSql = `select resultado, count(resultado) as num from respostas where fkUsuario = ${1} group by resultado`;
+        instrucaoSql = `select resultado, count(resultado) as num from respostas where fkUsuario = ${2} group by resultado`;
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
         return
