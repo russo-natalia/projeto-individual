@@ -50,17 +50,12 @@
         </div>
 
         <div class="linha-graficos">
-            <div id="lista_tentativas">
-                <span>Resultado mais frequente: <b id="obra_frequente_usuario" class="color-amarelo">O Almoço dos
-                        Barqueiros</b></span>
-                <div class="linha"></div>
-                <div class="linha-lista-tentativas" style="font-weight: bold;">
-                    <span>Tentativas</span>
-                    <span>Data</span>
-                </div>
-                <div id="tentativas_banco_dados">
-                    <!-- puxar lista banco -->
-                </div>
+            <div class="cards-kpis-seus">
+                <span>Seu Resultado Mais<br> Recorrente </span>
+                <h1 class="color-amarelo">
+                    <!-- KPI -->
+                    A aula de Dança
+                </h1>
             </div>
             <div id="grafico_resultados_pizza">
                 <!-- grafico pizza -->
@@ -219,33 +214,6 @@
     window.onload = obterDadosGrafico5();
     window.onload = obterDadosGrafico6();
     window.onload = obterDadosGrafico7();
-
-
-    // PUXANDO RESULTADOS ILUSTRATIVOS PARA A LISTA DE TENTATIVAS DO USUARIO
-    function puxarTentativasBD() {
-        var listaTentativasUsuario = [
-            'O Almoço dos Barqueiros',
-            'O Boulevard Montmartre, no fim da tarde',
-            'O Almoço dos Barqueiros'
-        ]
-
-        var listaTentativasUsuarioData = [
-            '02/05/2023',
-            '02/05/2023',
-            '04/05/2023'
-        ]
-
-        for (var contador = 0; contador < 3; contador++) {
-            tentativas_banco_dados.innerHTML += `
-       <div class="linha-lista-tentativas">
-            <span>${listaTentativasUsuario[contador]}</span>
-            <span>${listaTentativasUsuarioData[contador]}</span>
-        </div>
-    `
-        }
-
-    }
-    puxarTentativasBD()
 
 
     // ------Primeiro Gráfico---------------------------------------------------------------------------------------------------------------------------------------------------------------
