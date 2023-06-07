@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/dashboard.css">
     <title>Abstract | Painel Geral</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./js/funcoes.js"></script>
 </head>
 
 <body onload="obterDadosGrafico(), obterDadosGrafico2(), obterDadosGrafico3(), obterDadosGrafico4(), obterDadosGrafico5(), obterDadosGrafico6(), obterDadosGrafico7()">
@@ -221,7 +222,7 @@
 
     function obterDadosGrafico(idUsuario) {
 
-fetch(`/medidas/ultimas/${idUsuario}`, { cache: 'no-store' }).then(function (response) {
+fetch(`/medidas/ultimas/${sessionStorage.ID_USUARIO}`, { cache: 'no-store' }).then(function (response) {
     if (response.ok) {
         response.json().then(function (resposta) {
             console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
@@ -371,7 +372,7 @@ fetch(`/medidas/tempo-real/${idUsuario}`, { cache: 'no-store' }).then(function (
 //     clearTimeout(proximaAtualizacao);
 // // }
 
-fetch(`/medidas/ultimas2/${idUsuario2}`, { cache: 'no-store' }).then(function (response) {
+fetch(`/medidas/ultimas2/${sessionStorage.ID_USUARIO}`, { cache: 'no-store' }).then(function (response) {
     if (response.ok) {
         response.json().then(function (resposta) {
             console.log(`Dados recebidos: GRaIFCO 2 ${JSON.stringify(resposta)}`);
